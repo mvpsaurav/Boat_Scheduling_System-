@@ -1,0 +1,43 @@
+/* .frame
+{
+height: 100% !important;
+position: static !important; 
+} */
+.sidebar_container
+{
+background-color: teal;
+height: 100%;
+float: left;
+}
+.header_container
+{
+    height: 70px;
+    background-color: steelblue;float: right;
+}
+.container
+{
+    /*background-color:rgb(40, 72, 99) ;*/
+    height: 100%;
+    width: 100%;
+}
+body
+{
+	margin: 0px;
+}
+.sidebar_list
+{
+    margin-top: 50px;
+    padding: 10px 10px 10px;
+}
+.sidebar_list li
+{
+
+color: aliceblue;
+list-style: none;
+text-decoration: none;
+}
+.sidebar_list a
+{
+    text-decoration: none !important;
+    padding: 15px 15px 0px 0px;
+}
