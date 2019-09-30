@@ -1,11 +1,2 @@
-<?php session_start();
- if(empty($_SESSION['userid']))
-{header('location: modules/admin/login.php');}?>
-
-Loggedin
-<?php
- if(!empty($_SESSION['userid']))
- {  
-     echo "<a href='modules/logout.php'>Logout</a>";
- }
- ?>
+<a href="modules/admin/login.php"><h3>Admin Login</h3></a>
+<a href="#"><h3>BO Login</h1></a>

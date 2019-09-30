@@ -13,7 +13,7 @@ $index=1;
             <div class="col">
             	<div>
 					<!-- <a href="employee_register.php" class="btn btn-dark">Add Employee</a> -->
-					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Employee</button>
+					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat Owner</button>
             	</div>
             	<table class="table table-striped table-bordered">
             		<thead class="thead-dark">
@@ -58,7 +58,7 @@ $index=1;
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content" id="form_modal">
+    <div class="modal-content bo_form" id="form_modal">
     </div>
 
       <!-- Modal content end-->
@@ -71,7 +71,7 @@ $index=1;
 		// debugger;
 		 $.ajax({
 		type:"POST",
-		url:"employee_register.php",
+		url:"bo_register.php",
 		success:function(emp_add)
 		{
 		   $("#form_modal").html(emp_add);
@@ -86,7 +86,7 @@ $index=1;
 		// debugger;
 		 $.ajax({
 		type:"POST",
-		url:"employee_edit.php",
+		url:"bo_edit.php",
 		data:"id="+id,
 		success:function(emp_edit)
 		{
