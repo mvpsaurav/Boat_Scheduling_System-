@@ -4,7 +4,7 @@ require"../../includes/admin/layout/sidebar.php";
 require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
-$listing_query="SELECT * FROM users WHERE roleid <= 2";
+$listing_query="SELECT * FROM boatonwer";
 $execute_query=mysqli_query($connect,$listing_query);
 $index=1;
 ?>
@@ -58,7 +58,8 @@ $index=1;
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content bo_form" id="form_modal">
+    <div class="modal-content bo_form" id="form_modal" style="
+    width: 668px !important;">
     </div>
 
       <!-- Modal content end-->

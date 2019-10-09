@@ -15,28 +15,29 @@
       		<div class="col-4">mobile number:<input type="text" name="mobile_number"></div>
       	</div>
       	<div class="row">
-          <div class="col-4">user password:<input type="password" name="password"></div>
-          <div class="col-4">confirm password:<input type="password" name="confirm_password"></div>
-          <div class="col-4">user password:<input type="password" name="password"></div>
+          <div class="col-4">Aadhaar Number:<input type="text" name="password"></div>
+          <div class="col-4">PAN Number:<input type="text" name="confirm_password"></div>
+          <div class="col-4">Gender: Male<input type="radio" name="gender" value="1">Female<input type="radio" name="gender" value="2">other<input type="radio" name="gender" value="3"></div>
       	</div>
         <div class="row">
-          <div class="col-4">user password:<input type="password" name="password"></div>
-          <div class="col-4">confirm password:<input type="password" name="confirm_password"></div>
-          <div class="col-4">confirm password:<input type="password" name="confirm_password"></div>
+          <div class="col-4">Bank Name:<input type="text" name="password"></div>
+          <div class="col-4">Account Number:<input type="text" name="confirm_password"></div>
+          <div class="col-4">Account Name:<input type="text" name="confirm_password"></div>
         </div>
         <div class="row">
-          <div class="col-4">user password:<input type="password" name="password"></div>
-          <div class="col-4">confirm password:<input type="password" name="confirm_password"></div>
-          <div class="col-4">user password:<input type="password" name="password"></div>
+          <div class="col-4">IFSC Code:<input type="text" name="password"></div>
+          <!-- <div class="col-4">confirm password:<input type="text" name="confirm_password"></div>
+          <div class="col-4">user password:<input type="text" name="password"></div> -->
         </div>
         <div class="row">
-          <div class="col-4">confirm password:<input type="password" name="confirm_password"></div>
-          <div class="col-4">user password:<input type="password" name="password"></div>
-          <div class="col-4">confirm password:<input type="password" name="confirm_password"></div>
+          <div class="col-4">Address Line 1:<input type="text" name="confirm_password"></div>
+          <div class="col-4">Address Line 2(Optional):<input type="text" name="password"></div>
+          <div class="col-4">Zip Code:<input type="text" name="confirm_password"></div>
         </div>
         <div class="row">
-          <div class="col-4">user password:<input type="password" name="password"></div>  
-          <div class="col-4">confirm password:<input type="password" name="confirm_password"></div>
+          <div class="col-4">Country:<input type="text" name="password"></div>  
+          <div class="col-4">State:<input type="text" name="confirm_password"></div>
+          <div class="col-4">City:<input type="text" name="confirm_password"></div>
         </div>
        
       </div>

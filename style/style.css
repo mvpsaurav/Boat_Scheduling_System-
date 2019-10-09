@@ -11,7 +11,7 @@ float: left;
 }
 .header_container
 {
-    height: 70px;
+    height: 40px; 
     background-color: steelblue;float: right;
 }
 .container

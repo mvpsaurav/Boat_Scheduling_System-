@@ -1,4 +1,4 @@
-<div class="col-3 sidebar_container">
+<div class="col-2 sidebar_container">
 <ul class="list-group sidebar_list sidebar_list">
 	<a href="../../modules/admin/employee_listing.php"><li class="">Employee</li></a>
 	<a href="../../modules/admin/bo_listing.php"><li class="">BO Registration</li></a>
