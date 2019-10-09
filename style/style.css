@@ -133,3 +133,28 @@ body
     left: 85%;
     z-index: 1000;
 }
+    
+.modal-header
+{
+   background-color: #34394D;
+    color: white; 
+}
+.modal-footer
+{
+   background-color: #34394D;
+    color: white; 
+}
+form
+{
+    padding: 0%;
+    margin: 0%;
+}
+form input
+{
+    padding: 0%;
+    margin: 0%;
+border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+}

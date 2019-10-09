@@ -63,7 +63,7 @@ $index=1;
 <!--------------------------------Modal------------------------------->
 
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog" role="document">
 
     <!-- Modal content-->
     <div class="modal-content" id="form_modal">
