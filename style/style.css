@@ -14,7 +14,7 @@ padding: 0px 0px 0px 0px !important;
 .header_container
 {
     height: 80px; 
-    background-color: #5FBAFF;
+    background-color: #34394D;
     float: right;
 }
 .container
@@ -36,7 +36,8 @@ body
 .sidebar_list_li
 {
     padding: 0px 0px 0px 25px;
-    color: #A9A9A9;
+    /*color: #A9A9A9;*/
+    color:grey;
     list-style: none;
     text-decoration: none;
     font-weight: 500;
@@ -44,7 +45,7 @@ body
 }
 .sidebar_active
 {
-    background-color: #E1F1FA !important;
+    background-color: #202538 !important;
     box-shadow: 0px 1px 4px grey;
     border-bottom-right-radius: 17px;
     border-top-right-radius: 17px;
@@ -52,7 +53,7 @@ body
 .sidebar_active li
 {
     padding: 0px 0px 0px 25px;
-    color: black;
+    color: white;
     list-style: none;
     text-decoration: none;
     font-weight: 600;
@@ -66,9 +67,9 @@ body
 .sidebar_list a:hover
 {   
     transition-duration: 150ms;
-    color: black !important;
+    /*color: w !important;*/
     text-decoration: none !important;
-    background-color: #E1F1FA !important;
+    background-color: #202538 !important;
     box-shadow: 0px 1px 4px grey; 
     border-bottom-right-radius: 17px;
     border-top-right-radius: 17px;
@@ -76,7 +77,7 @@ body
 .sidebar_list_li:hover
 {   
     transition-duration: 150ms;
-    color: black;
+    color: white;
     list-style: none;
     text-decoration: none;
     padding: 0px 0px 0px 30px;
