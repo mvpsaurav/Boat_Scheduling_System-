@@ -1,17 +1,20 @@
 <?php
 require"../../includes/admin/layout/head.php";
 require"../../includes/admin/layout/sidebar.php";
-require"../../includes/admin/layout/header.php";
+// require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
 $listing_query="SELECT * FROM boatonwer";
 $execute_query=mysqli_query($connect,$listing_query);
 $index=1;
 ?>
+<div class="col-10 header_container">
+<h1 class=header_name>Boat Owner</h1>
+</div>
 <div class="container">
     <div class="row">
             <div class="col">
-            	<div class="wrapper">
+            	<div class="add_button">
 					<!-- <a href="employee_register.php" class="btn btn-dark">Add Employee</a> -->
 					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat Owner</button>
             	</div>
@@ -57,14 +60,7 @@ $index=1;
 </div>
 
 
-
-
-
-
-
-
-
-
+<!--------------------------------Modal------------------------------->
 
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">

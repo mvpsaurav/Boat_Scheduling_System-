@@ -1,17 +1,21 @@
 <?php
 require"../../includes/admin/layout/head.php";
 require"../../includes/admin/layout/sidebar.php";
-require"../../includes/admin/layout/header.php";
+// require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
 $listing_query="SELECT * FROM users WHERE roleid <= 2";
 $execute_query=mysqli_query($connect,$listing_query);
+$execute_query2=mysqli_query($connect,$listing_query);
 $index=1;
 ?>
+<div class="col-10 header_container">
+<h1 class=header_name>Employee</h1>
+</div>
 <div class="container">
     <div class="row">
             <div class="col">
-            	<div class="wrapper">
+            	<div class="add_button">
 					<!-- <a href="employee_register.php" class="btn btn-dark">Add Employee</a> -->
 					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Employee</button>
             	</div>
@@ -41,29 +45,22 @@ $index=1;
 				$index++;
 			}
 	?>
-	         		</tbody>
-		       		<tfoot class="thead-dark">
-           				<th scope="col">#</th>
-		            		<th scope="col">Employee Name</th>
-		            		<th scope="col">Employee Email</th>
-		            		<th scope="col">Mobile Number</th>
-		            		<th scope="col">Edit/Delete</th>
-        			</tfoot>  
-	     		</table>
-         	</div> 		
-        </div>
+		         		</tbody>
+			       		<tfoot class="thead-dark">
+	           				<th scope="col">#</th>
+			            		<th scope="col">Employee Name</th>
+			            		<th scope="col">Employee Email</th>
+			            		<th scope="col">Mobile Number</th>
+			            		<th scope="col">Edit/Delete</th>
+	        			</tfoot>  
+	     			</table>
+     			</div> 	
+        	</div>
     </div>
 </div>
 
 
-
-
-
-
-
-
-
-
+<!--------------------------------Modal------------------------------->
 
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-dialog-centered" role="document">
