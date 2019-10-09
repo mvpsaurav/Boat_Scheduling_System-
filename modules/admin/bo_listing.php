@@ -19,8 +19,8 @@ $index=1;
             		<thead class="thead-dark">
             		<tr>
 	        			<th scope="col">#</th>
-	            		<th scope="col">Employee Name</th>
-	            		<th scope="col">Employee Email</th>
+	            		<th scope="col">Boat Owner Name</th>
+	            		<th scope="col">Boat Owner Email</th>
 	            		<th scope="col">Mobile Number</th>
 	            		<th scope="col">Edit/Delete</th>
 	            	</tr>
@@ -34,7 +34,7 @@ $index=1;
 			echo '<td>'.$data['name'].'</td>';
 			echo '<td>'.$data['email'].'</td>';
 			echo '<td>'.$data['mobilenumber'].'</td>';
-			echo '<td><a href="#" onclick="editemp('.$data['userid'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>';
+			echo '<td><a href="#" onclick="editemp('.$data['id'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>';
 			echo '</tr>';
 			$index++;
 		}
