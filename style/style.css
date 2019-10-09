@@ -9,10 +9,11 @@ background-color: #FFFFFF;
 height: 100%;
 float: left;
 padding: 0px 0px 0px 0px !important;
+    box-shadow: 0px 0px 4px grey
 }
 .header_container
 {
-    height: 40px; 
+    height: 80px; 
     background-color: #5FBAFF;
     float: right;
 }
@@ -21,6 +22,7 @@ padding: 0px 0px 0px 0px !important;
     background-color:#F5F4FA ;
     height: 100%;
     width: 100%;
+    max-width: none !important;
 }
 body
 {
@@ -28,7 +30,7 @@ body
 }
 .sidebar_list
 {
-    margin-top: 50px;
+    margin-top: 10px;
     /* padding: 10px 10px 10px; */
 }
 .sidebar_list_li
@@ -37,11 +39,15 @@ body
     color: #A9A9A9;
     list-style: none;
     text-decoration: none;
+    font-weight: 500;
     
 }
 .sidebar_active
 {
     background-color: #E1F1FA !important;
+    box-shadow: 0px 1px 4px grey;
+    border-bottom-right-radius: 17px;
+    border-top-right-radius: 17px;
 }
 .sidebar_active li
 {
@@ -54,19 +60,26 @@ body
 .sidebar_list a
 {
     text-decoration: none !important;
+    margin-top: 7px;
 }
 
 .sidebar_list a:hover
-{
+{   
+    transition-duration: 150ms;
     color: black !important;
     text-decoration: none !important;
     background-color: #E1F1FA !important;
+    box-shadow: 0px 1px 4px grey; 
+    border-bottom-right-radius: 17px;
+    border-top-right-radius: 17px;
 }
 .sidebar_list_li:hover
-{
+{   
+    transition-duration: 150ms;
     color: black;
     list-style: none;
     text-decoration: none;
+    padding: 0px 0px 0px 30px;
 }
 .bo_form
 {
@@ -82,4 +95,21 @@ body
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
     outline: 0;
+}
+.wrapper
+{
+    background-color: #ffffff;
+    margin: 8px 0px 0px 0px;
+    box-shadow: 0px 2px 7px grey;
+
+}
+.logo h1
+{
+   color: #181D30;
+   margin: 0% 25%;
+}
+.logo img
+{
+    margin:2% 19% 0% 33%;
+    width: 80px;
 }
