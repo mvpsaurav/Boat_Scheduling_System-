@@ -5,18 +5,20 @@ position: static !important;
 } */
 .sidebar_container
 {
-background-color: teal;
+background-color: #FFFFFF;
 height: 100%;
 float: left;
+padding: 0px 0px 0px 0px !important;
 }
 .header_container
 {
     height: 40px; 
-    background-color: steelblue;float: right;
+    background-color: #5FBAFF;
+    float: right;
 }
 .container
 {
-    /*background-color:rgb(40, 72, 99) ;*/
+    background-color:#F5F4FA ;
     height: 100%;
     width: 100%;
 }
@@ -27,19 +29,44 @@ body
 .sidebar_list
 {
     margin-top: 50px;
-    padding: 10px 10px 10px;
+    /* padding: 10px 10px 10px; */
 }
-.sidebar_list li
+.sidebar_list_li
 {
-
-color: aliceblue;
-list-style: none;
-text-decoration: none;
+    padding: 0px 0px 0px 25px;
+    color: #A9A9A9;
+    list-style: none;
+    text-decoration: none;
+    
+}
+.sidebar_active
+{
+    background-color: #E1F1FA !important;
+}
+.sidebar_active li
+{
+    padding: 0px 0px 0px 25px;
+    color: black;
+    list-style: none;
+    text-decoration: none;
+    font-weight: 600;
 }
 .sidebar_list a
 {
     text-decoration: none !important;
-    padding: 15px 15px 0px 0px;
+}
+
+.sidebar_list a:hover
+{
+    color: black !important;
+    text-decoration: none !important;
+    background-color: #E1F1FA !important;
+}
+.sidebar_list_li:hover
+{
+    color: black;
+    list-style: none;
+    text-decoration: none;
 }
 .bo_form
 {
@@ -55,5 +82,4 @@ text-decoration: none;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
     outline: 0;
-
 }
