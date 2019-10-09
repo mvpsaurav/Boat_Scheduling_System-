@@ -4,7 +4,7 @@ require"../../includes/admin/layout/sidebar.php";
 // require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
-$listing_query="SELECT * FROM users WHERE roleid <= 2";
+$listing_query="SELECT * FROM users WHERE roleid <= 2 && status = 1";
 $execute_query=mysqli_query($connect,$listing_query);
 $execute_query2=mysqli_query($connect,$listing_query);
 $index=1;
@@ -40,7 +40,7 @@ $index=1;
 				echo '<td>'.$data['name'].'</td>';
 				echo '<td>'.$data['email'].'</td>';
 				echo '<td>'.$data['mobilenumber'].'</td>';
-				echo '<td><a href="#" onclick="editemp('.$data['userid'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>';
+				echo '<td><a href="#" onclick="editemp('.$data['userid'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="../../scripts/admin/employee_delete_script.php?id='.$data['userid'].'" class="btn btn-danger">Delete</a></td>';
 				echo '</tr>';
 				$index++;
 			}

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: sql302.epizy.com
--- Generation Time: Oct 09, 2019 at 08:52 AM
--- Server version: 5.6.45-86.1
--- PHP Version: 7.2.22
+-- Host: 127.0.0.1
+-- Generation Time: Oct 09, 2019 at 11:30 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `epiz_24608893_boat_token_system`
+-- Database: `boat_token_system`
 --
 
 -- --------------------------------------------------------
@@ -56,7 +56,7 @@ CREATE TABLE `boatonwer` (
   `createdby` int(11) DEFAULT NULL,
   `updatedat` datetime DEFAULT NULL,
   `updatedby` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `boatonwer`
@@ -65,7 +65,7 @@ CREATE TABLE `boatonwer` (
 INSERT INTO `boatonwer` (`id`, `username`, `name`, `email`, `adhaarnumber`, `pannumber`, `mobilenumber`, `password`, `gender`, `bankname`, `ifsc`, `accountname`, `accountnumber`, `status`, `roleid`, `profilepicture`, `profilepictureurl`, `addressline1`, `addressline2`, `cityid`, `stateid`, `countryid`, `zipcode`, `createdat`, `createdby`, `updatedat`, `updatedby`) VALUES
 (1, 'user name', 'fullname', 'email', 'adhar num', 'pan numb', 0, 'pass', 1, 'bank name', 'ifsc', 'acc name', 'acc num', 3, 3, '', '', 'add1', 'add2', 0, 0, 0, 0, '2019-10-09 05:24:05', 1, NULL, NULL),
 (2, 'user name', 'fullname', 'email', 'adhar num', 'pan numb', 0, 'pass', 1, 'bank name', 'ifsc', 'acc name', 'acc num', 3, 3, '', '', 'add1', 'add2', 0, 0, 0, 0, '2019-10-09 11:10:54', 1, NULL, NULL),
-(3, 'surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'surti', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 3, 3, '', '', 'govind puram', '', 0, 0, 0, 20302, '2019-10-09 11:10:42', 1, NULL, NULL);
+(3, 'surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'surti', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 1, 3, '', '', 'govind puram', '', 0, 0, 0, 20302, '2019-10-09 11:10:42', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE `city` (
   `cityid` int(11) NOT NULL,
   `stateid` int(11) NOT NULL,
   `cityname` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -88,7 +88,7 @@ CREATE TABLE `city` (
 CREATE TABLE `country` (
   `id` int(11) NOT NULL,
   `countryname` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE `roles` (
   `role` varchar(10) NOT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_at` date DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `roles`
@@ -122,7 +122,7 @@ CREATE TABLE `state` (
   `stateid` int(11) NOT NULL,
   `countryid` int(11) NOT NULL,
   `statename` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,7 @@ CREATE TABLE `users` (
   `mobilenumber` bigint(10) NOT NULL,
   `name` varchar(20) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -148,7 +148,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userid`, `username`, `roleid`, `password`, `email`, `mobilenumber`, `name`, `status`) VALUES
 (1, 'admin', 1, 'admin', 'vishum.10m@gmail.com', 8076248299, 'Vishad Mandal', 1),
 (4, 'gaurav', 2, 'asdf', 'sgaurav0999@gmail.com', 9953526971, 'Gaurav Sen', 1),
-(5, 'shivam', 2, '', 'rshivam@gmail.com', 123456789, 'Shivam raput', 1);
+(5, 'shivam', 2, '', 'rshivam@gmail.com', 123456789, 'Shivam raput', 2);
 
 --
 -- Indexes for dumped tables

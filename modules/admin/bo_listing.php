@@ -4,7 +4,7 @@ require"../../includes/admin/layout/sidebar.php";
 // require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
-$listing_query="SELECT * FROM boatonwer";
+$listing_query="SELECT * FROM boatonwer WHERE status = 1";
 $execute_query=mysqli_query($connect,$listing_query);
 $index=1;
 ?>
