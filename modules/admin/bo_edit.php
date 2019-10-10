@@ -1,7 +1,7 @@
  <?php
 include "../../includes/admin/dbconnect.php";
 $user_id=$_POST['id'];
-$edit_query="SELECT * FROM boatonwer WHERE id=".$user_id;
+$edit_query="SELECT * FROM boatowner WHERE id=".$user_id;
 $execute_query=mysqli_query($connect,$edit_query);
 $edit_data=mysqli_fetch_assoc($execute_query);
  ?>

@@ -6,7 +6,6 @@ require"../../includes/admin/dbconnect.php";
 
 $listing_query="SELECT * FROM users WHERE roleid <= 2 && status = 1";
 $execute_query=mysqli_query($connect,$listing_query);
-$execute_query2=mysqli_query($connect,$listing_query);
 $index=1;
 ?>
 <div class="col-10 header_container">
