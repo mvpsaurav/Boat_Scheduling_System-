@@ -16,6 +16,7 @@ session_start();
         <script src="../../scripts/JS/bootstrapdatatable.js"></script>
         <script src="../../scripts/JS/jquerydatatable.js"></script>
         <!-- <script src="../../scripts/JS/script.js"></script> -->
+        <script src="../../scripts/JS/sweetalert.js"></script>
 
     </head>
     <body>
