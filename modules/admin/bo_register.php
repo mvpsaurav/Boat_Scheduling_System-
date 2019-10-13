@@ -11,37 +11,37 @@
       </div>
       <div class="modal-body">
       	<div class="row">
-      		<div class="col-4">user name:<input type="text" name="user_name"></div>
-      		<div class="col-4">full name:<input type="text" name="full_name"></div>
-          <div class="col-4">user email:<input type="text" name="user_email"></div>
+      		<div class="col-4"><label>User Name</label><input type="text" name="user_name"></div>
+      		<div class="col-4"><label>Full Name</label><input type="text" name="full_name"></div>
+          <div class="col-4"><label>Email</label><input type="text" name="user_email"></div>
       	</div>
       	<div class="row">
-          <div class="col-4">user password:<input type="password" name="password"></div>
-          <div class="col-4">confirm password:<input type="password" name="confirm_password"></div>
-      		<div class="col-4">mobile number:<input type="text" name="mobile_number"></div>
+          <div class="col-4"><label>Password</label><input type="password" name="password"></div>
+          <div class="col-4"><label>Confirm Password</label><input type="password" name="confirm_password"></div>
+      		<div class="col-4"><label>Mobile Number</label><input type="text" name="mobile_number"></div>
       	</div>
       	<div class="row">
-          <div class="col-4">Aadhaar Number:<input type="text" name="aadaarnumber"></div>
-          <div class="col-4">PAN Number:<input type="text" name="pannumber"></div>
-          <div class="col-4">Gender: Male<input type="radio" name="gender" value="1">Female<input type="radio" name="gender" value="2">other<input type="radio" name="gender" value="3"></div>
+          <div class="col-4"><label>Aadhaar Number</label><input type="text" name="aadaarnumber"></div>
+          <div class="col-4"><label>PAN Number</label><input type="text" name="pannumber"></div>
+          <div class="col-4"><label>Gender</label><br>Male<input type="radio" name="gender" value="1">Female<input type="radio" name="gender" value="2">other<input type="radio" name="gender" value="3"></div>
       	</div>
         <div class="row">
-          <div class="col-4">Bank Name:<input type="text" name="bank_name"></div>
-          <div class="col-4">Account Number:<input type="text" name="account_number"></div>
-          <div class="col-4">Account Name:<input type="text" name="account_name"></div>
+          <div class="col-4"><label>Bank Name</label><input type="text" name="bank_name"></div>
+          <div class="col-4"><label>Account Number</label><input type="text" name="account_number"></div>
+          <div class="col-4"><label>Account Name</label><input type="text" name="account_name"></div>
         </div>
         <div class="row">
-          <div class="col-4">IFSC Code:<input type="text" name="ifsc"></div>
+          <div class="col-4"><label>IFSC Code</label><input type="text" name="ifsc"></div>
      <!-- <div class="col-4">confirm password:<input type="text" name="confirm_password"></div>
           <div class="col-4">user password:<input type="text" name="password"></div> -->
         </div>
         <div class="row">
-          <div class="col-4">Address Line 1:<input type="text" name="address1"></div>
-          <div class="col-4">Address Line 2(Optional):<input type="text" name="address2"></div>
-          <div class="col-4">Zip Code:<input type="text" name="zip_code"></div>
+          <div class="col-4"><label>Address Line 1</label><input type="text" name="address1"></div>
+          <div class="col-4"><label>Address Line 2(Optional)</label><input type="text" name="address2"></div>
+          <div class="col-4"><label>Zip Code</label><input type="text" name="zip_code"></div>
         </div>
         <div class="row">
-          <div class="col-4">Country:
+          <div class="col-4"><label>Country</label><br>
             <select name="country" onchange="getstate(this.value)">
               <option>Select Country</option>
               <?php
@@ -52,13 +52,13 @@
               ?>
             </select>
           </div>  
-          <div class="col-4">State:
+          <div class="col-4"><label>State</label><br>
                 <select id="state" name="state" onchange="getcity(this.value)">
                   <option>Select State</option>
               </select>
 
           </div>
-          <div class="col-4">City:
+          <div class="col-4"><label>City</label><br>
           <select id="city" name="city">
                   <option>Select City</option>
               </select>

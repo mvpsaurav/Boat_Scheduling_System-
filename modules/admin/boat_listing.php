@@ -4,28 +4,28 @@ require"../../includes/admin/layout/sidebar.php";
 // require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
-$listing_query="SELECT * FROM boatowner WHERE status = 1";
+$listing_query="SELECT * FROM boatdetails WHERE status = 1";
 $execute_query=mysqli_query($connect,$listing_query);
 $index=1;
 ?>
 <div class="col-10 header_container">
-<h1 class=header_name>Boat Owner</h1>
+<h1 class=header_name>Boat</h1>
 </div>
 <div class="container">
     <div class="row">
             <div class="col">
             	<div class="add_button">
 					<!-- <a href="employee_register.php" class="btn btn-dark">Add Employee</a> -->
-					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat Owner</button>
+					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat</button>
             	</div>
             	<div class="wrapper">
-	            	<table id="bolist" class="table table-striped table-bordered">
+	            	<table id="boatlist" class="customtable table table-striped table-bordered">
 	            		<thead class="thead-dark">
 	            		<tr>
 		        			<th scope="col">#</th>
-		            		<th scope="col">Boat Owner Name</th>
-		            		<th scope="col">Boat Owner Email</th>
-		            		<th scope="col">Mobile Number</th>
+		            		<th scope="col">Boat Name</th>
+		            		<th scope="col">Boat Model</th>
+		            		<th scope="col">Boat Owner</th>
 		            		<th scope="col">Edit/Delete</th>
 		            	</tr>
 		            </thead>
@@ -35,10 +35,10 @@ $index=1;
 			{	
 				echo '<tr>';
 				echo '<td scope="row">'.$index.'</td>';
-				echo '<td>'.$data['name'].'</td>';
-				echo '<td>'.$data['email'].'</td>';
-				echo '<td>'.$data['mobilenumber'].'</td>';
-				echo '<td><a href="#" onclick="editemp('.$data['id'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="../../scripts/admin/bo_delete_script.php?id='.$data['id'].'" class="btn btn-danger">Delete</a></td>';
+				echo '<td>'.$data['boatname'].'</td>';
+				echo '<td>'.$data['modelname'].'</td>';
+				echo '<td>'.$data['boatowner'].'</td>';
+				echo '<td><a href="#" onclick="editemp('.$data['boatid'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="../../scripts/admin/boat_delete_script.php?id='.$data['boatid'].'" class="btn btn-danger">Delete</a></td>';
 				echo '</tr>';
 				$index++;
 			}
@@ -46,10 +46,10 @@ $index=1;
 	         		</tbody>   
 	         		<tfoot class="thead-dark">
 	            		<tr>
-		        			<th scope="col">#</th>
-		            		<th scope="col">Boat Owner Name</th>
-		            		<th scope="col">Boat Owner Email</th>
-		            		<th scope="col">Mobile Number</th>
+		        		<th scope="col">#</th>
+		            		<th scope="col">Boat Name</th>
+		            		<th scope="col">Boat Model</th>
+		            		<th scope="col">Boat Owner</th>
 		            		<th scope="col">Edit/Delete</th>
 		            	</tr>
 		            </tfoot>
@@ -80,7 +80,7 @@ $index=1;
 		// debugger;
 		 $.ajax({
 		type:"POST",
-		url:"bo_register.php",
+		url:"boat_register.php",
 		success:function(emp_add)
 		{
 		   $("#form_modal").html(emp_add);
@@ -95,7 +95,7 @@ $index=1;
 		// debugger;
 		 $.ajax({
 		type:"POST",
-		url:"bo_edit.php",
+		url:"boat_edit.php",
 		data:"id="+id,
 		success:function(emp_edit)
 		{
@@ -109,6 +109,6 @@ $index=1;
 </script>
 <script>
     $(document).ready(function() {
-    $('#bolist').DataTable();
+    $('#boatlist').DataTable();
 } );
 </script>

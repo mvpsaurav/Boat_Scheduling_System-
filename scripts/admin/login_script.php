@@ -14,7 +14,7 @@ if($result_data['password']==$password)
     $_SESSION['userrole']=$result_data['roleid'];
     if($_SESSION['userrole']==1)
     {
-	    header('location:  ../../modules/admin/dashboard.php');	
+	    header('location:  ../../modules/admin/bo_listing.php');	
     }
 	else
 	{

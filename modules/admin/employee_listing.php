@@ -19,7 +19,7 @@ $index=1;
 					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Employee</button>
             	</div>
             	<div class="wrapper">
-	            	<table class="table table-striped table-bordered" id="emplist">
+	            	<table class="table customtable table-striped table-bordered" id="emplist">
 	            		<thead class="thead-dark">
 	            		<tr>
 		        			<th scope="col">#</th>

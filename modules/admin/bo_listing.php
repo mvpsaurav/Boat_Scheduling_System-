@@ -5,7 +5,9 @@ require"../../includes/admin/layout/sidebar.php";
 require"../../includes/admin/dbconnect.php";
 
 $listing_query="SELECT * FROM boatowner WHERE status = 1";
+$pending_query="SELECT * FROM boatowner WHERE status = 3";
 $execute_query=mysqli_query($connect,$listing_query);
+$execute_pending_query=mysqli_query($connect,$pending_query);
 $index=1;
 ?>
 <div class="col-10 header_container">
@@ -19,7 +21,7 @@ $index=1;
 					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat Owner</button>
             	</div>
             	<div class="wrapper">
-	            	<table id="bolist" class="table table-striped table-bordered">
+	            	<table id="bolist" class="table customtable table-striped table-bordered">
 	            		<thead class="thead-dark">
 	            		<tr>
 		        			<th scope="col">#</th>
@@ -54,9 +56,26 @@ $index=1;
 		            	</tr>
 		            </tfoot>
 	         	</table>		
-	         </div>
+			 </div>
+			 
+			
+
         </div>
-    </div>
+	</div>
+	<div class="wrapper col-4" style="float:left">Pending Verifications
+		<?php
+			while($result=mysqli_fetch_assoc($execute_pending_query))
+			{
+				echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-dark' onclick='viewrecord(".$result["id"].")'>View Record</button> <label>User Id:</label> ".$result["id"].", <label>User Name:</label> ".$result["username"].", <label>Reuqested At:</label> ".$result["createdat"]."</div>";
+			}
+		?>
+	</div>
+			<div class="wrapper col-7" id="result" style="float:right">Pending Verifications
+				
+
+				</div>
+
+
 </div>
 
 
@@ -106,6 +125,20 @@ $index=1;
 
 	}
 
+	function viewrecord(id)
+	{
+		// alert(id);
+		$.ajax({
+		type:"POST",
+		url:"penidng_bo_request.php",
+		data:"id="+id,
+		success:function(pending_request)
+		{
+		   $("#result").html(pending_request);
+		}
+
+		 })
+	}
 </script>
 <script>
     $(document).ready(function() {

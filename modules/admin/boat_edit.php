@@ -4,8 +4,8 @@ $user_id=$_POST['id'];
 $edit_query="SELECT * FROM boatowner WHERE id=".$user_id;
 $execute_query=mysqli_query($connect,$edit_query);
 $edit_data=mysqli_fetch_assoc($execute_query);
-$getcounrty_query="SELECT * FROM country";
-$execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
+// $getcounrty_query="SELECT * FROM country";
+// $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
  ?>
 
 
@@ -16,7 +16,22 @@ $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
         <h4 class="modal-title">Add Employee</h4>
       </div>
       <div class="modal-body">
-        <div class="row">
+      <div class="row">
+      		<div class="col-4"><label>Boat Owner</label><input type="text" name="bo_id"></div>
+      		<div class="col-4"><label>Boat Name</label><input type="text" name="boatname"></div>
+          <div class="col-4"><label>Boat Number</label><input type="text" name="boatnumber"></div>
+      	</div>
+      	<div class="row">
+          <div class="col-4"><label>Person Capacity</label><input type="password" name="personcapacity"></div>
+          <div class="col-4"><label>Weight capacity</label><input type="password" name="weightcapacity"></div>
+      		<!-- <div class="col-4"><label>mobile number</label>     <input type="text" name="mobile_number"></div> -->
+      	</div>
+      	<div class="row">
+          <div class="col-4"><label>Brand Name</label><input type="text" name="brandname"></div>
+          <div class="col-4"><label>Model Name</label><input type="text" name="modelname"></div>
+          <!-- <div class="col-4"><label></label>Gender: Male       <input type="radio" name="gender" value="1">Female  <input type="radio" name="gender" value="2">other                                                         <input type="radio" name="gender" value="3"></div> -->
+      	</div>
+        <!-- <div class="row">
           <div class="col-4">user name:<input type="text" name="user_name" value="<?= $edit_data['username']?>"></div>
           <div class="col-4">full name:<input type="text" name="full_name" value="<?= $edit_data['name']?>"></div>
           <div class="col-4">user email:<input type="text" name="user_email" value="<?= $edit_data['email']?>"></div>
@@ -49,10 +64,10 @@ $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
             <select name="country" onchange="getstate(this.value)">
               <option>Select Country</option>
               <?php
-                while($result=mysqli_fetch_assoc($execute_getcounrty_query))
-                {
-                echo "<option value='".$result["id"]."'";if($result["id"]==$edit_data['countryid']){echo"selected";}echo">".$result["countryname"]."</option>";
-                }
+                // while($result=mysqli_fetch_assoc($execute_getcounrty_query))
+                // {
+                // echo "<option value='".$result["id"]."'";if($result["id"]==$edit_data['countryid']){echo"selected";}echo">".$result["countryname"]."</option>";
+                // }
               ?>
             </select>
           </div>  
@@ -60,12 +75,12 @@ $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
                 <select id="state" name="state" onchange="getcity(this.value)">
                   <option>Select State</option>
                   <?php
-                    $getstate_query="SELECT * FROM state WHERE countryid=".$edit_data['countryid'];
-                    $execute_getstate_query=mysqli_query($connect,$getstate_query);
-                    while($result=mysqli_fetch_assoc($execute_getstate_query))
-                    {
-                    echo "<option value='".$result["stateid"]."'";if($result["stateid"]==$edit_data['stateid']){echo"selected";}echo">".$result["statename"]."</option>";
-                    }
+                    // $getstate_query="SELECT * FROM state WHERE countryid=".$edit_data['countryid'];
+                    // $execute_getstate_query=mysqli_query($connect,$getstate_query);
+                    // while($result=mysqli_fetch_assoc($execute_getstate_query))
+                    // {
+                    // echo "<option value='".$result["stateid"]."'";if($result["stateid"]==$edit_data['stateid']){echo"selected";}echo">".$result["statename"]."</option>";
+                    // }
                   ?>
               </select>
 
@@ -74,15 +89,15 @@ $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
           <select id="city" name="city">
                   <option>Select City</option>
                   <?php
-                    $getcity_query="SELECT * FROM city WHERE stateid=".$edit_data['stateid'];
-                    $execute_getcity_query=mysqli_query($connect,$getcity_query);
-                    while($result=mysqli_fetch_assoc($execute_getcity_query))
-                    {
-                    echo "<option value='".$result["cityid"]."'";if($result["cityid"]==$edit_data['cityid']){echo"selected";}echo">".$result["cityname"]."</option>";
-                    }
+                    // $getcity_query="SELECT * FROM city WHERE stateid=".$edit_data['stateid'];
+                    // $execute_getcity_query=mysqli_query($connect,$getcity_query);
+                    // while($result=mysqli_fetch_assoc($execute_getcity_query))
+                    // {
+                    // echo "<option value='".$result["cityid"]."'";if($result["cityid"]==$edit_data['cityid']){echo"selected";}echo">".$result["cityname"]."</option>";
+                    // }
                   ?>
               </select>
-          </div>
+          </div> -->
         </div>
       
       </div>
