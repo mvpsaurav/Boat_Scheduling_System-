@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2019 at 06:33 PM
+-- Generation Time: Oct 13, 2019 at 10:19 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -63,9 +63,9 @@ CREATE TABLE `boatowner` (
 --
 
 INSERT INTO `boatowner` (`id`, `username`, `name`, `email`, `adhaarnumber`, `pannumber`, `mobilenumber`, `password`, `gender`, `bankname`, `ifsc`, `accountname`, `accountnumber`, `status`, `roleid`, `profilepicture`, `profilepictureurl`, `addressline1`, `addressline2`, `cityid`, `stateid`, `countryid`, `zipcode`, `createdat`, `createdby`, `updatedat`, `updatedby`) VALUES
-(1, 'surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'asdf', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 3, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-10-09 05:24:05', 1, '2019-10-13 04:10:52', 1),
+(1, 'newuser', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'asdf', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 1, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-10-09 05:24:05', 1, '2019-10-13 04:10:52', 1),
 (2, 'surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'asdf', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 1, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-10-09 11:10:54', 1, '2019-10-13 04:10:52', 1),
-(3, 'Surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'asdf', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 1, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-10-09 11:10:42', 1, '2019-10-13 04:10:07', 1);
+(3, 'Surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'asdf', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 3, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-10-09 11:10:42', 1, '2019-10-13 04:10:07', 1);
 
 -- --------------------------------------------------------
 
@@ -175,7 +175,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userid`, `username`, `roleid`, `password`, `email`, `mobilenumber`, `name`, `status`) VALUES
 (1, 'admin', 1, 'admin', 'vishum.10m@gmail.com', 8076248299, 'Vishad Mandal', 1),
 (4, 'gaurav', 2, 'asdf', 'sgaurav0999@gmail.com', 9953526971, 'Gaurav Sen', 1),
-(5, 'shivam', 2, '', 'rshivam@gmail.com', 123456789, 'Shivam raput', 2);
+(5, 'shivam', 2, '', 'rshivam@gmail.com', 123456789, 'Shivam raput', 2),
+(6, '', 2, '', '', 0, '', 0);
 
 --
 -- Indexes for dumped tables
@@ -255,7 +256,7 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

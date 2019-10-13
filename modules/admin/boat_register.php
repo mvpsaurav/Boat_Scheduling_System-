@@ -1,7 +1,10 @@
  <?php
  require"../../includes/admin/dbconnect.php";
  $getcounrty_query="SELECT * FROM country";
+ $getboatowner_query="SELECT id,username FROM boatowner WHERE status=1";
  $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
+ $execute_getboatowner_query=mysqli_query($connect,$getboatowner_query);
+
  ?>
  
  <!-- Modal content-->
@@ -11,7 +14,17 @@
       </div>
       <div class="modal-body">
       	<div class="row">
-      		<div class="col-4"><label>Boat Owner</label><input type="text" name="bo_id"></div>
+          <div class="col-4"><label>Boat Owner</label>
+            <select name="bo_id">
+              <option>Select BoatOwner</option>
+              <?php 
+                while($result=mysqli_fetch_assoc($execute_getboatowner_query))
+                {
+                  echo "<option value='".$result['id']."'>".$result['username']."</option>";
+                }
+              ?>
+            </select>
+          </div>
       		<div class="col-4"><label>Boat Name</label><input type="text" name="boatname"></div>
           <div class="col-4"><label>Boat Number</label><input type="text" name="boatnumber"></div>
       	</div>
