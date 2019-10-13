@@ -1,7 +1,7 @@
 <?php include"../../includes/admin/layout/head.php";
 if(!empty($_SESSION['userid']))
 {
-    header("location: ../../index.php");
+    header("location: bo_listing.php");
 }
 ?>
 

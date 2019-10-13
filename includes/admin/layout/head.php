@@ -15,6 +15,7 @@ session_start();
         <script src="../../scripts/JS/jquery.js"></script>
         <script src="../../scripts/JS/bootstrapdatatable.js"></script>
         <script src="../../scripts/JS/jquerydatatable.js"></script>
+        <!-- <script src="../../scripts/JS/script.js"></script> -->
 
     </head>
     <body>

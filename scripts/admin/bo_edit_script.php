@@ -1,5 +1,8 @@
 <?php 
 require "../../includes/admin/dbconnect.php";
+session_start();
+$updated_by=$_SESSION['userid'];
+// $edit_id=$_POST['userid'];
 $username=$_POST["user_name"];
 $fullname=$_POST["full_name"];
 $useremail=$_POST["user_email"];
@@ -26,19 +29,32 @@ $createdby=1;
 $profilepicture="";
 $profilepictureurl="";
 // $status=3;
-// if($confirm_password==$password)
-// {
-//   $edit_query="UPDATE users SET username='".$username."', password= '".$password."', email= '".$useremail."', mobilenumber='".$mobile_number."',name='".$fullname."' WHERE userid=".$userid;
-//   if($execute_query=mysqli_query($connect,$edit_query))
-//   {
-//   	header("location: ../../modules/admin/employee_listing.php");
-//   }
-// }
-// else
-// {
-// 	echo "password did not match";
-//     // header("location: ../modules/login.php?error=password_did_not_match");
-// }
+if(empty($password))
+{
+echo "test";
+}
+else
+{
+if($confirm_password==$password)
+{
+  $edit_query="UPDATE boatowner SET 
+  username='".$username."', password='".$password."', email='".$useremail."', mobilenumber='".$mobile_number."',
+  name='".$fullname."',adhaarnumber='".$aadaarnumber."',pannumber='".$pannumber."',gender='".$gender."',
+  bankname='".$bank_name."',ifsc='".$ifsc."',accountname='".$account_name."',accountnumber='".$account_number."',
+  profilepicture='".$profilepicture."',profilepictureurl='".$profilepictureurl."',addressline1='".$address1."',
+  addressline2='".$address2."',cityid='".$city."',stateid='".$state."',countryid='".$country."',zipcode='".$zip_code."',
+  updatedat='".$updatedat."',updatedby='".$updated_by."' WHERE id=".$_POST['userid'];
 
+if($execute_query=mysqli_query($connect,$edit_query))
+  {
+  	header("location: ../../modules/admin/bo_listing.php");
+  }
+  else{echo"error occured while saving data";}
+}
+else
+{
+	echo "password did not match";
+}
 
+}
 ?>

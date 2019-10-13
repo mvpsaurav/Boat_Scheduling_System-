@@ -1,3 +1,9 @@
+ <?php
+ require"../../includes/admin/dbconnect.php";
+ $getcounrty_query="SELECT * FROM country";
+ $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
+ ?>
+ 
  <!-- Modal content-->
 	<form action="../../scripts/admin/bo_register_script.php" method="post">
       <div class="modal-header">
@@ -26,7 +32,7 @@
         </div>
         <div class="row">
           <div class="col-4">IFSC Code:<input type="text" name="ifsc"></div>
-          <!-- <div class="col-4">confirm password:<input type="text" name="confirm_password"></div>
+     <!-- <div class="col-4">confirm password:<input type="text" name="confirm_password"></div>
           <div class="col-4">user password:<input type="text" name="password"></div> -->
         </div>
         <div class="row">
@@ -35,9 +41,28 @@
           <div class="col-4">Zip Code:<input type="text" name="zip_code"></div>
         </div>
         <div class="row">
-          <div class="col-4">Country:<input type="text" name="country"></div>  
-          <div class="col-4">State:<input type="text" name="state"></div>
-          <div class="col-4">City:<input type="text" name="city"></div>
+          <div class="col-4">Country:
+            <select name="country" onchange="getstate(this.value)">
+              <option>Select Country</option>
+              <?php
+                while($result=mysqli_fetch_assoc($execute_getcounrty_query))
+                {
+                echo "<option value='".$result["id"]."'>".$result["countryname"]."</option>";
+                }
+              ?>
+            </select>
+          </div>  
+          <div class="col-4">State:
+                <select id="state" name="state" onchange="getcity(this.value)">
+                  <option>Select State</option>
+              </select>
+
+          </div>
+          <div class="col-4">City:
+          <select id="city" name="city">
+                  <option>Select City</option>
+              </select>
+          </div>
         </div>
        
       </div>
@@ -47,3 +72,33 @@
       </div>
     </form>
       <!-- Modal content end-->
+      <script>
+        function getstate(id)
+        {
+        $.ajax({
+        type:"POST",
+        url:"getstate.php",
+        data:"country_id="+id,
+        success:function(state)
+        {
+          $("#state").html(state);
+          // alert(state);
+        }
+        })
+        }
+
+        function getcity(id)
+        {
+        $.ajax({
+        type:"POST",
+        url:"getcity.php",
+        data:"state_id="+id,
+        success:function(city)
+        {
+          $("#city").html(city);
+          // alert(city);
+        }
+        })
+        }
+
+        </script>

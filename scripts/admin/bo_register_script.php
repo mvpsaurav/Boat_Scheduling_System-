@@ -1,6 +1,7 @@
 <?php 
 require "../../includes/admin/dbconnect.php";
-
+session_start();
+$createdby=$_SESSION['userid'];
 $username=$_POST["user_name"];
 $fullname=$_POST["full_name"];
 $useremail=$_POST["user_email"];
@@ -23,7 +24,6 @@ $city=$_POST["city"];
 $roleid=3;
 $createdat=date("Y-m-d h:m:s");
 // echo"<br>2019-10-09 05:24:05";
-$createdby=1;
 $profilepicture="";
 $profilepictureurl="";
 $status=3;
