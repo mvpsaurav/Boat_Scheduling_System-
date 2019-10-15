@@ -13,12 +13,21 @@ $status=3;
 $createdat=date("Y-m-d h:m:s");
 $boatlogo="";
 $boatlogourl="";
-
+$time=$_POST['time'];
   $register_query="INSERT INTO boatdetails(boatowner, boatname, boatnumber, personcapacity, weightcapacity,status,brandname,modelname,createdat,createdby,boatlogo,boatlogourl) 
-  VALUES ('".$ownerid."','".$boatname."','".$boatnumber."','".$personcapacity."','".$weightcapacity."','".$status."','".$brandname."','".$modelname."','".$createdat."','".$created_by."','".$boatlogo."','".$boatlogourl."')";
+  VALUES ('".$ownerid."','".$boatname."','".$boatnumber."','".$personcapacity."','".$weightcapacity."','".$status."','".$brandname."','".$modelname."','".$createdat."','".$created_by."','".$boatlogo."','".$boatlogourl."');";
+  $get_id_query="SELECT LAST_INSERT_ID();";
   if($execute_query=mysqli_query($connect,$register_query))
-  {
-  	header("location: ../../modules/admin/boat_listing.php");
+  { 
+    $execute_get_id_query=mysqli_query($connect,$get_id_query);
+    $data=mysqli_fetch_assoc($execute_get_id_query);
+    $boatid=$data['LAST_INSERT_ID()']; 
+      for($a=1;$a<=7;$a++)
+      {
+       $boatschedule_query="INSERT INTO boatschedule (boatid,day,departuretime,arrivaltime) VALUES ('".$boatid."','".$a."','".$time[$a][0]."','".$time[$a][1]."');";
+       $execute_boatschedule_query=mysqli_query($connect,$boatschedule_query);        
+      }
+     	header("location: ../../modules/admin/boat_listing.php");
   }
 else
 {

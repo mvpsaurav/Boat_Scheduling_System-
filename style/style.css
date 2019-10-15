@@ -168,3 +168,11 @@ form input
     /* margin: 0px 5px; */
     padding: 10px 5px;
 }
+.section_header
+{
+    background-color: #34394D;
+    color: white;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+}

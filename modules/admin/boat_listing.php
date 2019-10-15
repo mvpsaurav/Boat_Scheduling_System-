@@ -67,7 +67,7 @@ $index=1;
 					echo "<label>Pending Request </label>";
 					while($result=mysqli_fetch_assoc($execute_pending_query))
 					{
-						echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["boatid"].")'>View Record</button> <label>User Id:</label> ".$result["id"].", <label>User Name:</label> ".$result["username"].", <label>Reuqested At:</label> ".$result["createdat"]."</div>";
+						echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["boatid"].")'>View Record</button> <label>Boat Id:</label> ".$result["boatid"].", <label>Boat Name:</label> ".$result["boatname"].", <label>Reuqested At:</label> ".$result["createdat"]."</div>";
 					}
 				}
 				?>
@@ -121,6 +121,20 @@ $index=1;
 
 		 })
 
+	}
+	function viewrecord(id)
+	{
+		// alert(id);
+		$.ajax({
+		type:"POST",
+		url:"pending_boat_request.php",
+		data:"id="+id,
+		success:function(pending_request)
+		{
+		   $("#result").html(pending_request);
+		}
+
+		 })
 	}
 
 </script>
