@@ -63,22 +63,19 @@ $index=1;
 
         </div>
 	</div>
-	<div class="wrapper col-4" style="float:left">
-		<?php
-		if($check_rows_pending_query > 0)
-		{
-			echo "<label>Pending Request </label>";
-			while($result=mysqli_fetch_assoc($execute_pending_query))
-			{
-				echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["id"].")'>View Record</button> <label>User Id:</label> ".$result["id"].", <label>User Name:</label> ".$result["username"].", <label>Reuqested At:</label> ".$result["createdat"]."</div>";
-			}
-		}
-		?>
-	</div>
-			<div class="wrapper col-7" id="result" style="float:right">
-				
-
-				</div>
+			<div class="wrapper col-4" style="float:left">
+				<?php
+				if($check_rows_pending_query > 0)
+				{
+					echo "<label>Pending Request </label>";
+					while($result=mysqli_fetch_assoc($execute_pending_query))
+					{
+						echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["id"].")'>View Record</button> <label>User Id:</label> ".$result["id"].", <label>User Name:</label> ".$result["username"].", <label>Reuqested At:</label> ".$result["createdat"]."</div>";
+					}
+				}
+				?>
+			</div>
+			<div class="wrapper col-7" id="result" style="float:right"></div>
 
 
 </div>

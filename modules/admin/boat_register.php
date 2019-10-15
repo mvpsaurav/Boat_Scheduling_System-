@@ -29,8 +29,8 @@
           <div class="col-4"><label>Boat Number</label><input type="text" name="boatnumber"></div>
       	</div>
       	<div class="row">
-          <div class="col-4"><label>Person Capacity</label><input type="password" name="personcapacity"></div>
-          <div class="col-4"><label>Weight capacity</label><input type="password" name="weightcapacity"></div>
+          <div class="col-4"><label>Person Capacity</label><input type="text" name="personcapacity"></div>
+          <div class="col-4"><label>Weight capacity(In KG)</label><input type="text" name="weightcapacity"></div>
       		<!-- <div class="col-4"><label>mobile number</label>     <input type="text" name="mobile_number"></div> -->
       	</div>
       	<div class="row">

@@ -1,7 +1,7 @@
  <?php
 require"../../includes/admin/dbconnect.php";
 $user_id=$_POST['id'];
-$edit_query="SELECT * FROM boatowner WHERE id=".$user_id;
+$edit_query="SELECT * FROM boatdetails WHERE boatid=".$user_id;
 $execute_query=mysqli_query($connect,$edit_query);
 $edit_data=mysqli_fetch_assoc($execute_query);
 // $getcounrty_query="SELECT * FROM country";
@@ -11,24 +11,24 @@ $edit_data=mysqli_fetch_assoc($execute_query);
 
  <!-- Modal content-->
 	<form action="../../scripts/admin/bo_edit_script.php" method="post">
-    <input type="text" name="userid" value="<?= $edit_data['id']?>" readonly style="display:none;">
+    <input type="text" name="userid" value="<?= $edit_data['boatid']?>" readonly style="display:none;">
       <div class="modal-header">
         <h4 class="modal-title">Add Employee</h4>
       </div>
       <div class="modal-body">
       <div class="row">
-      		<div class="col-4"><label>Boat Owner</label><input type="text" name="bo_id"></div>
-      		<div class="col-4"><label>Boat Name</label><input type="text" name="boatname"></div>
-          <div class="col-4"><label>Boat Number</label><input type="text" name="boatnumber"></div>
+      		<div class="col-4"><label>Boat Owner</label><input type="text" name="bo_id" value="<?= $edit_data['boatowner']?>"></div>
+      		<div class="col-4"><label>Boat Name</label><input type="text" name="boatname" value="<?= $edit_data['boatname']?>"></div>
+          <div class="col-4"><label>Boat Number</label><input type="text" name="boatnumber" value="<?= $edit_data['boatnumber']?>"></div>
       	</div>
       	<div class="row">
-          <div class="col-4"><label>Person Capacity</label><input type="password" name="personcapacity"></div>
-          <div class="col-4"><label>Weight capacity</label><input type="password" name="weightcapacity"></div>
+          <div class="col-4"><label>Person Capacity</label><input type="text" name="personcapacity" value="<?= $edit_data['personcapacity']?>"></div>
+          <div class="col-4"><label>Weight capacity</label><input type="text" name="weightcapacity" value="<?= $edit_data['weightcapacity']?>"></div>
       		<!-- <div class="col-4"><label>mobile number</label>     <input type="text" name="mobile_number"></div> -->
       	</div>
       	<div class="row">
-          <div class="col-4"><label>Brand Name</label><input type="text" name="brandname"></div>
-          <div class="col-4"><label>Model Name</label><input type="text" name="modelname"></div>
+          <div class="col-4"><label>Brand Name</label><input type="text" name="brandname" value="<?= $edit_data['brandname']?>"></div>
+          <div class="col-4"><label>Model Name</label><input type="text" name="modelname" value="<?= $edit_data['modelname']?>"></div>
           <!-- <div class="col-4"><label></label>Gender: Male       <input type="radio" name="gender" value="1">Female  <input type="radio" name="gender" value="2">other                                                         <input type="radio" name="gender" value="3"></div> -->
       	</div>
         <!-- <div class="row">

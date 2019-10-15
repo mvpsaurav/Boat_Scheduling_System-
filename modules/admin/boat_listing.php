@@ -4,8 +4,11 @@ require"../../includes/admin/layout/sidebar.php";
 // require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
+$pending_query="SELECT * FROM boatdetails WHERE status = 3";
 $listing_query="SELECT * FROM boatdetails WHERE status = 1";
 $execute_query=mysqli_query($connect,$listing_query);
+$execute_pending_query=mysqli_query($connect,$pending_query);
+$check_rows_pending_query=mysqli_num_rows($execute_pending_query);
 $index=1;
 ?>
 <div class="col-10 header_container">
@@ -57,6 +60,20 @@ $index=1;
 	         </div>
         </div>
     </div>
+    <div class="wrapper col-4" style="float:left">
+				<?php
+				if($check_rows_pending_query > 0)
+				{
+					echo "<label>Pending Request </label>";
+					while($result=mysqli_fetch_assoc($execute_pending_query))
+					{
+						echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["boatid"].")'>View Record</button> <label>User Id:</label> ".$result["id"].", <label>User Name:</label> ".$result["username"].", <label>Reuqested At:</label> ".$result["createdat"]."</div>";
+					}
+				}
+				?>
+			</div>
+			<div class="wrapper col-7" id="result" style="float:right"></div>
+
 </div>
 
 
