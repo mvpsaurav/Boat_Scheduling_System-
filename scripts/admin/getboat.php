@@ -12,12 +12,10 @@ while($result=mysqli_fetch_assoc($execute_get_port_query))
    $journeyfromboat[]=$result['boatid'];
   
 }
-// print_r($journeyfromboat);
 while($result=mysqli_fetch_assoc($execute_get_port_query2))
 {   
     $journeytoboat[]=$result['boatid'];
 }
-// print_r($journeytoboat);
 foreach($journeyfromboat as $startingport)
 {
     foreach($journeytoboat as $endingport)
@@ -28,11 +26,14 @@ foreach($journeyfromboat as $startingport)
         }
     }
 }
+// $boats is the array that conatins boatid of all of the boats that will go through the route
 foreach($boats as $boat)
 {
 $getboatname_query="SELECT boatname,boatid FROM boatdetails WHERE boatid='".$boat."'";
 $execute_getboatname_query=mysqli_query($connect,$getboatname_query);
 $result=mysqli_fetch_assoc($execute_getboatname_query);
-echo $result['boatname'];
+echo $result['boatname']."-";
+echo $result['boatid']."-";
+
 
 }

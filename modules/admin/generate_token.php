@@ -96,7 +96,12 @@ $index=1;
 		success:function(response)
         {
             // console.log(response);
-		   $("#boat_name").html(response);
+		//    $("#boat_name").html(response);
+           var data=response.split("-");
+            var name=data[0];
+            var id=data[1];
+		   $("#boat_name").html(name);
+           $("#boat_id").html(id);
 		}
 
 		 })
