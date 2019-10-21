@@ -1,6 +1,6 @@
 <?php include"../../includes/bo/layout/head.php";
 // echo$roleid= $_SESSION['userrole'];
-if(!empty($_SESSION['userid']))
+if(!empty($_SESSION['userrole']))
 {   
 	$roleid= $_SESSION['userrole'];
     if($roleid==3)

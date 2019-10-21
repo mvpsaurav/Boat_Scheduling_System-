@@ -60,7 +60,7 @@
         </div>
         <div class="row">
           <div class="col-4"><label>Wednesday</label></div>
-          <div class="col-4"><select name="time[4][]" class="time_select"><option value="">Closed</option></select></div>
+          <div class="col-4"><select name="time[4][]" class="time_select form-control"><option value="">Closed</option></select></div>
           <div class="col-4"><select name="time[4][]" class="time_select"><option value="">Closed</option></select></div>
         </div>
         <div class="row">
