@@ -1,7 +1,12 @@
 <?php include"../../includes/bo/layout/head.php";
+// echo$roleid= $_SESSION['userrole'];
 if(!empty($_SESSION['userid']))
-{
-    // header("location: bo_listing.php");
+{   
+	$roleid= $_SESSION['userrole'];
+    if($roleid==3)
+	{
+	    header("location: boat_listing.php");
+	}
 }
 ?>
 

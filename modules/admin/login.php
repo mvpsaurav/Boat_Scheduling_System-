@@ -1,7 +1,10 @@
 <?php include"../../includes/admin/layout/head.php";
 if(!empty($_SESSION['userid']))
 {
-    header("location: bo_listing.php");
+    if($_SESSION['userrole']<=2)
+	{
+	    header("location: bo_listing.php");
+	}
 }
 ?>
 

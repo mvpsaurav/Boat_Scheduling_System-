@@ -9,7 +9,7 @@ $result_data=mysqli_fetch_assoc($execute_query);
 if($result_data['password']==$password)
 {
     session_start();
-    $_SESSION['userid']=$result_data['userid'];
+    $_SESSION['userid']=$result_data['id'];
     $_SESSION['username']=$result_data['username'];
     $_SESSION['userrole']=$result_data['roleid'];
     if($_SESSION['userrole']==3)

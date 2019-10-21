@@ -1,5 +1,6 @@
 <?php
 require"../../includes/admin/layout/head.php";
+require"../../includes/admin/layout/condition_check.php";
 require"../../includes/admin/layout/sidebar.php";
 // require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
