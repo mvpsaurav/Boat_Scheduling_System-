@@ -1,27 +1,24 @@
 <?php 
 require "../../includes/admin/dbconnect.php";
-$userid=$_POST['userid'];
-$username=$_POST["user_name"];
-$fullname=$_POST["full_name"];
-$useremail=$_POST["user_email"];
-$mobile_number=$_POST["mobile_number"];
-$password=$_POST["password"];
-$confirm_password=$_POST["confirm_password"];
-$roleid=2;
-
-if($confirm_password==$password)
+session_start();
+$updatedby=$_SESSION['userid'];
+$ownerid=$_POST["boid"];
+$boatname=$_POST["boatname"];
+$boatnumber=$_POST["boatnumber"];
+$personcapacity=$_POST["personcapacity"];
+$weightcapacity=$_POST["weightcapacity"];
+$brandname=$_POST["brandname"];
+$modelname=$_POST["modelname"];
+$updatedat=date("Y-m-d h:m:s");
+$boatlogo="";
+$boatlogourl="";
+$time=$_POST['time'];
+$edit_query="UPDATE boatdetails SET 
+  boatowner='".$ownerid."', boatname='".$boatname."', boatnumber='".$boatnumber."', personcapacity='".$personcapacity."',weightcapacity='".$weightcapacity."',brandname='".$brandname."',modelname='".$modelname."',  updatedat='".$updatedat."',updatedby='".$updatedby."',boatlogo='".$boatlogo."',boatlogourl='".$boatlogourl."' WHERE boatid=".$_POST['boatid'];
+if($execute=mysqli_query($connect,$edit_query))
 {
-  $edit_query="UPDATE users SET username='".$username."', password= '".$password."', email= '".$useremail."', mobilenumber='".$mobile_number."',name='".$fullname."' WHERE userid=".$userid;
-  if($execute_query=mysqli_query($connect,$edit_query))
-  {
-  	header("location: ../../modules/admin/employee_listing.php");
-  }
-}
-else
-{
-	echo "password did not match";
-    // header("location: ../modules/login.php?error=password_did_not_match");
-}
+	echo "done";
 
+}
 
 ?>
