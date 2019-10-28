@@ -5,7 +5,7 @@
  ?>
  
  <!-- Modal content-->
-	<form action="../../scripts/admin/bo_register_script.php" method="post">
+	<form action="../../scripts/admin/bo_register_script.php" method="post" id="bo_form">
       <div class="modal-header">
         <h4 class="modal-title">Add Boat Owner</h4>
       </div>
@@ -23,7 +23,7 @@
       	<div class="row">
           <div class="col-4"><label>Aadhaar Number</label><input type="text" name="aadaarnumber"></div>
           <div class="col-4"><label>PAN Number</label><input type="text" name="pannumber"></div>
-          <div class="col-4"><label>Gender</label><br>Male<input type="radio" name="gender" value="1">Female<input type="radio" name="gender" value="2">other<input type="radio" name="gender" value="3"></div>
+          <div class="col-4"><label>Gender</label><div class="radio-group"><label class="radio"><input type="radio" name="gender" value="1">Male<span></span></label><label class="radio"><input type="radio" name="gender" value="2">Female<span></span></label><label class="radio"><input type="radio" name="gender" value="3">Other<span></span></label></div></div>
       	</div>
         <div class="row">
           <div class="col-4"><label>Bank Name</label><input type="text" name="bank_name"></div>

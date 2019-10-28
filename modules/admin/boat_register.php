@@ -46,6 +46,12 @@
         <div class="row">
           <div class="col-4"><label>Sunday</label></div>
           <div class="col-4"><select name="time[1][]" class="time_select"><option value="">Closed</option></select></div>
+          <!-- <div class="input-group clock">
+        <input type="text" class="form-control" value="" placeholder="Click to choose time">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+        </span>
+        </div> -->
           <div class="col-4"><select name="time[1][]" class="time_select"><option value="">Closed</option></select></div>
         </div>
         <div class="row">
@@ -124,4 +130,17 @@
             }
         });
         </script>
+        <!-- <script>
+var $input = $('.clock').clockpicker({
+    default:          'now',
+    placement:        'bottom', 
+    align:            'left',
+    donetext:         'Okay',
+    autoclose:        false,
+    vibrate:          true,
+    fromnow:          00
+});
+
+$input.clockpicker('show');
+</script> -->
 </head>

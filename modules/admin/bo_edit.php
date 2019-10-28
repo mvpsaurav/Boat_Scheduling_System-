@@ -29,7 +29,7 @@ $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
         <div class="row">
           <div class="col-4"><label>Aadhaar Number</label><input type="text" name="aadaarnumber" value="<?= $edit_data['adhaarnumber']?>"></div>
           <div class="col-4"><label>PAN Number</label><input type="text" name="pannumber" value="<?= $edit_data['pannumber']?>"></div>
-          <div class="col-4"><label>Gender</label> Male<input type="radio" name="gender" value="1" <?= $edit_data['gender']== 1 ? "checked" : "" ;?> >Female<input type="radio" name="gender" value="2" <?= $edit_data['gender']== 2 ? "checked" : "" ;?>>other<input type="radio" name="gender" value="3" <?= $edit_data['gender']== 3 ? "checked" : "" ;?>></div>
+          <div class="col-4"><label>Gender</label><div class="radio-group"><label class="radio"><input type="radio" name="gender" value="1" <?= $edit_data['gender']== 1 ? "checked" : "" ;?> >Male<span></span></label><label class="radio"><input type="radio" name="gender" value="2" <?= $edit_data['gender']== 2 ? "checked" : "" ;?>> Female<span></span></label><label class="radio"><input type="radio" name="gender" value="3" <?= $edit_data['gender']== 3 ? "checked" : "" ;?>>Other<span></span></label></div></div>
         </div>
         <div class="row">
           <div class="col-4"><label>Bank Name</label><input type="text" name="bank_name" value="<?= $edit_data['bankname']?>"></div>
