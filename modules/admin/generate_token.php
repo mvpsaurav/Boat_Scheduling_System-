@@ -62,8 +62,8 @@ $index=1;
                   </div>
                 </div>
                 <div class="wrapper col col-lg-7" style="float:right">
-                <form action="../../scripts/admin/reserved_booking_script.php" method="post">
-                    <div class="section_header">Reserved Tickets</div>
+                <div class="section_header">Reserved Tickets</div>
+                <form action="../../scripts/admin/reserved_booking_script.php" method="post"  style="padding: 0px 15px;">
                         <div id="reservation_form">
                         
                                 <div class="row">
