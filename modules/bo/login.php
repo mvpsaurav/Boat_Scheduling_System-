@@ -19,6 +19,7 @@ if(!empty($_SESSION['userrole']))
 <form action="../../scripts/bo/login_script.php" method="post">
 <label>User Name</label><input type="text" name="user_name">
 <label>Password</label><input type="password" name="password">
+New Here? <a href="register.php">Register now</a>
 <button type="submit">Login</button>
 </form>
 </div>

@@ -5,6 +5,8 @@ $edit_query="SELECT * FROM boatdetails WHERE boatid=".$user_id;
 $execute_query=mysqli_query($connect,$edit_query);
 $edit_data=mysqli_fetch_assoc($execute_query);
 $boatowner_name="SELECT id,username FROM boatowner";
+$select_port_query="SELECT portid,portname FROM ports";
+$execute_select_port_query=mysqli_query($connect,$select_port_query);
 $execute_boatowner_name=mysqli_query($connect,$boatowner_name);
 $getboatowner_query="SELECT id,username FROM boatowner WHERE status=1";
 $execute_getboatowner_query=mysqli_query($connect,$getboatowner_query);
@@ -96,6 +98,19 @@ $execute_getboatowner_query=mysqli_query($connect,$getboatowner_query);
           <div class="col-4"><label>Saturday</label></div>
           <div class="col-4"><select name="time[7][]" class="time_select"><option value="">Closed</option></select></div>
           <div class="col-4"><select name="time[7][]" class="time_select"><option value="">Closed</option></select></div>
+        </div>
+        <div class="row">
+              <div class="col-4">
+                <label><b>Select Ports</b></label>
+              </div>
+              <div class="col-8">
+                <?php 
+                  while($data=mysqli_fetch_assoc($execute_select_port_query))
+                  {
+                    echo "<input type='checkbox' name='port[]' value='".$data['portid']."'>".$data['portname'];
+                  }
+                ?>
+              </div>
         </div>
       </div>
         </div>

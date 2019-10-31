@@ -190,6 +190,7 @@ form input
     align-items: center;
     padding: 15px;
     background-color: #ebebeb;
+    /* max-height: 100vh; */
 }
 .login_form_wrapper
 {
@@ -198,6 +199,9 @@ form input
     background: #fff;
     border-radius: 10px;
     position: relative;
+    max-height: 80vh;
+    /* height: 60%; */
+    /* overflow-y: scroll; */
 }
 .login_form_wrapper input
 {
@@ -240,12 +244,10 @@ form input
 box-shadow: 0px 1px 6px black ;
 }
 .login_form_wrapper label{
-    /* font-family: Raleway-SemiBold; */
-    /* font-size: 13px; */
     color: #555555;
     line-height: 1.4;
     text-transform: uppercase;
-    padding: 7px 0px 5px 0px;
+    /* padding: 7px 0px 5px 0px; */
 }
 #admin_login_header
 {
@@ -318,3 +320,30 @@ box-shadow: 0px 1px 6px black ;
 {
     transform: translate(-50%,-50%) scale(1);
 }
+#reservation_wrapper
+{
+    padding: 1% 6%;
+}
+.bo_register_from
+{
+    width: 100%;
+    overflow-y: scroll; 
+     /* margin: 0px 5px; */
+     max-height: 50vh;
+     position: relative;
+     /* max-height: 80vh; */
+}
+.row
+{
+    margin-right: 0px !important; 
+    margin-left: 0px !important;
+}
+.col{
+
+    padding-right: 0px !important; 
+    padding-left: 0px !important;
+}
+/* .bo_register_from label
+{
+   padding: 0px 0px 5px 0px!important;
+} */

@@ -1,8 +1,10 @@
  <?php
  require"../../includes/admin/dbconnect.php";
  $getcounrty_query="SELECT * FROM country";
- $getboatowner_query="SELECT id,username FROM boatowner WHERE status=1";
+ $getboatowner_query="SELECT id,name FROM boatowner WHERE status=1";
+ $select_port_query="SELECT portid,portname FROM ports";
  $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
+ $execute_select_port_query=mysqli_query($connect,$select_port_query);
  $execute_getboatowner_query=mysqli_query($connect,$getboatowner_query);
 
  ?>
@@ -20,7 +22,7 @@
               <?php 
                 while($result=mysqli_fetch_assoc($execute_getboatowner_query))
                 {
-                  echo "<option value='".$result['id']."'>".$result['username']."</option>";
+                  echo "<option value='".$result['id']."'>".$result['name']."</option>";
                 }
               ?>
             </select>
@@ -83,7 +85,20 @@
           <div class="col-4"><label>Saturday</label></div>
           <div class="col-4"><select name="time[7][]" class="time_select"><option value="">Closed</option></select></div>
           <div class="col-4"><select name="time[7][]" class="time_select"><option value="">Closed</option></select></div>
-      	</div>
+        </div>
+        <div class="row">
+              <div class="col-4">
+                <label><b>Select Ports</b></label>
+              </div>
+              <div class="col-8">
+                <?php 
+                  while($data=mysqli_fetch_assoc($execute_select_port_query))
+                  {
+                    echo "<input type='checkbox' name='port[]' value='".$data['portid']."'>".$data['portname'];
+                  }
+                ?>
+              </div>
+        </div>
       </div>
       <div class="modal-footer">
       	<button type="submit" class="btn btn-success">Add</button>

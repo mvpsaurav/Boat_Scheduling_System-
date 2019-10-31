@@ -14,6 +14,7 @@ $createdat=date("Y-m-d h:m:s");
 $boatlogo="";
 $boatlogourl="";
 $time=$_POST['time'];
+$port=$_POST['port'];
   $register_query="INSERT INTO boatdetails(boatowner, boatname, boatnumber, personcapacity, weightcapacity,status,brandname,modelname,createdat,createdby,boatlogo,boatlogourl) 
   VALUES ('".$ownerid."','".$boatname."','".$boatnumber."','".$personcapacity."','".$weightcapacity."','".$status."','".$brandname."','".$modelname."','".$createdat."','".$created_by."','".$boatlogo."','".$boatlogourl."');";
   $get_id_query="SELECT LAST_INSERT_ID();";
@@ -26,6 +27,11 @@ $time=$_POST['time'];
       {
        $boatschedule_query="INSERT INTO boatschedule (boatid,day,departuretime,arrivaltime) VALUES ('".$boatid."','".$a."','".$time[$a][0]."','".$time[$a][1]."');";
        $execute_boatschedule_query=mysqli_query($connect,$boatschedule_query);        
+      }
+      foreach($port as $data)
+      {
+        $port_query="INSERT INTO boat_route (boatid,portid,status) VALUES ('".$boatid."','".$data."',1)";
+        $execute_port_query=mysqli_query($connect,$port_query);        
       }
      	header("location: ../../modules/admin/boat_listing.php");
   }

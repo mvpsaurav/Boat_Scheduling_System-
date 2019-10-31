@@ -7,6 +7,7 @@ require"../../includes/admin/dbconnect.php";
 
 $port_query="SELECT * FROM ports";
 $execute_query=mysqli_query($connect,$port_query);
+$execute_query2=mysqli_query($connect,$port_query);
 $index=1;
 ?>
 <link rel="stylesheet" href="../../style/jquery-ui.css">      
@@ -86,9 +87,14 @@ $index=1;
                                         <label>Boarding Port</label>
                                     </div>
                                     <div class="col">
-                                        <select name="journey_from">
-                                            <option>choose station
-                                            </option>
+                                        <select name="journey_from" onchange="getdestination2(this.value)">
+                                            <option>Select Station</option>
+                                            <?php  
+                                                while($result=mysqli_fetch_assoc($execute_query2))
+                                                {
+                                                    echo "<option value='".$result['portid']."'>".$result['portname']."</option>";
+                                                }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -97,40 +103,40 @@ $index=1;
                                         <label>Destination Port</label>
                                     </div>
                                     <div class="col">
-                                        <select name="journey_to">
+                                        <select name="journey_to" id="destination">
                                             <option>choose station
                                             </option>
                                         </select>
                                     </div>
                                 </div>
                                <div class="traveler_details" id="test">
-                                   <div class="wrapper">
+                                   <div class="wrapper" id="reservation_wrapper">
                                        <div class="row">
                                            <div class="col">
                                                <label>Name</label>
-                                               <input type="text" name="traveler[]['name']">
+                                               <input type="text" name="traveler[0][]">
                                            </div>
                                            <div class="col">
                                                 <label>Age</label>
-                                                <input type="text" name="traveler[]['age']">
+                                                <input type="text" name="traveler[1][]">
                                            </div>
                                            <div class="col">
                                                 <label>Gender</label>
-                                                <input type="text" name="traveler[]['gender']">
+                                                <input type="text" name="traveler[2][]">
                                            </div>
                                        </div>
                                        <div class="row">
                                            <div class="col">
                                                <label>ID Type</label>
-                                               <input type="text" name="traveler[]['idtype']">
+                                               <input type="text" name="traveler[3][]">
                                            </div>
                                            <div class="col">
                                                <label>ID Number</label>
-                                               <input type="text" name="traveler[]['id']">
+                                               <input type="text" name="traveler[4][]">
                                            </div>
                                            <div class="col">
                                                <label>Contact Number</label>
-                                               <input type="text" name="traveler[]['contact']">
+                                               <input type="text" name="traveler[5][]">
                                            </div>
                                        </div>
                                    </div>
@@ -177,6 +183,19 @@ $index=1;
 
 		 })
     }
+    function getdestination2(portid)
+    {
+        $.ajax({
+		type:"POST",
+		url:"../../scripts/admin/getdestination.php",
+		data:"portid="+portid,
+		success:function(response)
+        {
+		   $("#destination").html(response);
+		}
+
+		 })
+    }
     function getboat(portid)
     {   
         var a = $('#journey_from').val();;
@@ -186,13 +205,13 @@ $index=1;
 		data:{journeyto : portid,journeyfrom : a},
 		success:function(response)
         {
-            // console.log(response);
-		//    $("#boat_name").html(response);
-           var data=response.split("-");
-            var name=data[0];
-            var id=data[1];
-		   $("#boat_name").html(name);
-           $("#boat_id").html(id);
+            console.log(response);
+		   $("#boat_name").html(response);
+        //    var data=response.split("-");
+        //     var name=data[0];
+        //     var id=data[1];
+		//    $("#boat_name").html(name);
+        //    $("#boat_id").html(id);
 		}
 
 		 })
@@ -219,7 +238,7 @@ $input.clockpicker('hidden');
   <script>
       function addtraveler()
       {
-        var fields= '<div class="wrapper"><div class="row"><div class="col"><label>Name</label><input type="text" name="traveler[]['+"'name'"+']"></div><div class="col"><label>Age</label><input type="text" name="traveler[]['+"'age'"+']"></div><div class="col"><label>Gender</label><input type="text" name="traveler[]['+"'gender'"+']"></div></div><div class="row"><div class="col"><label>ID Type</label><input type="text" name="traveler[]['+"'idtype'"+']"></div><div class="col"><label>ID Number</label><input type="text" name="traveler[]['+"'id'"+']"></div><div class="col"><label>Contact Number</label><input type="text" name="traveler[]['+"'contact'"+']"></div></div></div>';
+        var fields= ' <div class="wrapper" id="reservation_wrapper"><div class="row"><div class="col"><label>Name</label><input type="text" name="traveler[0][]"></div><div class="col"><label>Age </label><input type="text" name="traveler[1][]"></div><div class="col"><label>Gender</label><input type="text" name="traveler[2][]"></div></div><div class="row"><div class="col"><label>ID Type</label><input type="text" name="traveler[3][]"></div><div class="col"><label>ID Number</label><input type="text" name="traveler[4][]"></div><div class="col"><label>Contact Number</label><input type="text" name="traveler[5][]"></div></div></div>';
         $("#test").append(fields);        
       }
     </script>
