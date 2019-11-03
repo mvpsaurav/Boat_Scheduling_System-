@@ -26,17 +26,8 @@ $index=1;
                 <div class="wrapper col col-lg-4" style="float:left">
                 <div class="section_header">Unreserved Tickets</div>
                   <div id="token_form">
-                    <form action="#" method="post">
-                        <div class="row">
-                            <div class="col"><label>Boat Name</label></div> <div class="col" id="boat_name"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col"><label>Boat ID</label></div> <div class="col" id="boat_id"></div>
-                        </div>
-                        <div class="row">
-                        <div class="col">
-                            <label>Available Seats</label></div> <div class="col" id="available_seats"></div>                            
-                        </div>
+                    <form action="../../scripts/admin/unreserved_booking_script.php" method="post">
+                       <div id="input_container"> </div>
                         <div class="row">
                             <div class="col"><label>Select Boarding Port</label></div> <div class="col"><select name="journey_from" id="journey_from" onchange="getdestination(this.value)"><option>Select Station</option>
                             <?php  
@@ -48,8 +39,18 @@ $index=1;
                             </select></div>
                         </div>
                         <div class="row">
-                            <div class="col"><label>Select Destination Port</label> </div> <div class="col"><select name="journey_from" id="journey_to" onchange="getboat(this.value)"><option>Select Boarding Station</option>
+                            <div class="col"><label>Select Destination Port</label> </div> <div class="col"><select name="journey_to" id="journey_to" onchange="getboat(this.value)"><option value="">Select Boarding Station</option>
                             </select></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><label>Boat Name</label></div> <div class="col"><select id="boat_name" name="boatid" onchange="changeboat(this.value)"><option value="">Select Destination Port</option></select></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><label>Boat Number</label></div> <div class="col" id="boat_number"></div>
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                            <label>Available Seats</label></div> <div class="col" id="available_seats"></div>                            
                         </div>
                         <div class="row">
                             <div class="col"><label>Number of Passengers</label> </div> <div class="col"><input type="text" name="number_of_passengers"></div>
@@ -190,11 +191,10 @@ $index=1;
 		url:"../../scripts/admin/getdestination.php",
 		data:"portid="+portid,
 		success:function(response)
-        {
-		   $("#destination").html(response);
-		}
-
-		 })
+            {
+            $("#destination").html(response);
+            }
+        })
     }
     function getboat(portid)
     {   
@@ -205,9 +205,14 @@ $index=1;
 		data:{journeyto : portid,journeyfrom : a},
 		success:function(response)
         {
-            console.log(response);
-		   $("#boat_name").html(response);
-        //    var data=response.split("-");
+            // console.log(response);
+           var data=response.split("&");
+		   $("#boat_name").html(data[0]);
+            $("#boat_number").html(data[1]);
+            $("#available_seats").html(data[2]);
+            $("#input_container").html(data[3]);
+
+        //    console.log(data);
         //     var name=data[0];
         //     var id=data[1];
 		//    $("#boat_name").html(name);
@@ -216,6 +221,28 @@ $index=1;
 
 		 })
     }
+    function changeboat(boatid)
+    {
+        // alert(boatid);   
+        $.ajax({
+		type:"POST",
+		url:"../../scripts/admin/change_boat.php",
+		data:"boatid="+boatid,
+		success:function(response)
+            {
+            // $("#destination").html(response);
+            // alert(response);
+            // console.log(response);
+            var data=response.split("&");
+            $("#boat_number").html(data[0]);
+            $("#available_seats").html(data[1]);
+            $("#input_container").html(data[2]);
+            // console.log(data);
+
+            }
+        })     
+    }
+
 </script>
 <script>
 var $input = $('.clock').clockpicker({

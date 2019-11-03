@@ -6,6 +6,12 @@ $execute_query=mysqli_query($connect,$edit_query);
 $edit_data=mysqli_fetch_assoc($execute_query);
 $boatowner_name="SELECT id,username FROM boatowner";
 $select_port_query="SELECT portid,portname FROM ports";
+$select_boat_route_query="SELECT status,portid FROM boat_route WHERE boatid=".$user_id." && status=1";
+$execute_select_boat_route_query=mysqli_query($connect,$select_boat_route_query);
+while($boat_route_data=mysqli_fetch_assoc($execute_select_boat_route_query))
+{
+  $boat_route[]=$boat_route_data;
+}
 $execute_select_port_query=mysqli_query($connect,$select_port_query);
 $execute_boatowner_name=mysqli_query($connect,$boatowner_name);
 $getboatowner_query="SELECT id,username FROM boatowner WHERE status=1";
@@ -21,21 +27,11 @@ $execute_getboatowner_query=mysqli_query($connect,$getboatowner_query);
     <input type="text" name="boatid" value="<?= $edit_data['boatid']?>" readonly style="display:none;">
     <input type="text" name="boid" value="<?= $edit_data['boatowner']?>" readonly style="display:none;">
       <div class="modal-header">
-        <h4 class="modal-title">Add Employee</h4>
+        <h4 class="modal-title">Edit Boat</h4>
       </div>
       <div class="modal-body">
       <div class="row">
       		<div class="col-4"><label>Boat Owner</label>
-            <!-- <input type="text" name="boname" value="
-            <?php
-           // while($boat_owner_data=mysqli_fetch_array($execute_boatowner_name))
-           // {
-           //  if($edit_data['boatowner']==$boat_owner_data['id'])
-           //  {
-           //    echo $boat_owner_data['username'];
-           //  }
-           // }
-           ?>"> -->
               <select name="boname">
               <option>Select BoatOwner</option>
               <?php 
@@ -107,7 +103,17 @@ $execute_getboatowner_query=mysqli_query($connect,$getboatowner_query);
                 <?php 
                   while($data=mysqli_fetch_assoc($execute_select_port_query))
                   {
-                    echo "<input type='checkbox' name='port[]' value='".$data['portid']."'>".$data['portname'];
+                
+                    echo "<input type='checkbox' name='port[]'"; 
+                    foreach($boat_route as $route)
+                    {
+                      // echo $route['portid'];
+                      if($route['portid']==$data['portid'])
+                      {
+                        echo "checked ";
+                      }
+                    }                    
+                    echo "value='".$data['portid']."'>".$data['portname'];
                   }
                 ?>
               </div>

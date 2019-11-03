@@ -7,6 +7,12 @@ require"../../includes/admin/dbconnect.php";
 
 $pending_query="SELECT * FROM boatdetails WHERE status = 3";
 $listing_query="SELECT * FROM boatdetails WHERE status = 1";
+$bo_data_query="SELECT id,name FROM boatowner";
+$execute_bo_data_query=mysqli_query($connect,$bo_data_query);
+while($bo_data=mysqli_fetch_assoc($execute_bo_data_query))
+{
+$boat_owners[]=array("name"=>$bo_data['name'],"boid"=>$bo_data['id']);
+}
 $execute_query=mysqli_query($connect,$listing_query);
 $execute_pending_query=mysqli_query($connect,$pending_query);
 $check_rows_pending_query=mysqli_num_rows($execute_pending_query);
@@ -41,7 +47,15 @@ $index=1;
 				echo '<td scope="row">'.$index.'</td>';
 				echo '<td>'.$data['boatname'].'</td>';
 				echo '<td>'.$data['modelname'].'</td>';
-				echo '<td>'.$data['boatowner'].'</td>';
+				echo '<td>';
+				foreach($boat_owners as $boat_owner)
+				{
+					if($boat_owner['boid']==$data['boatowner'])
+					{
+					echo$boat_owner['name'];
+					}
+				}
+				echo'</td>';
 				echo '<td><a href="#" onclick="editemp('.$data['boatid'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="../../scripts/admin/boat_delete_script.php?id='.$data['boatid'].'" class="btn btn-danger">Delete</a></td>';
 				echo '</tr>';
 				$index++;
@@ -68,7 +82,7 @@ $index=1;
 					echo "<label>Pending Request </label>";
 					while($result=mysqli_fetch_assoc($execute_pending_query))
 					{
-						echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["boatid"].")'>View Record</button> <label>Boat Id:</label> ".$result["boatid"].", <label>Boat Name:</label> ".$result["boatname"].", <label>Reuqested At:</label> ".$result["createdat"]."</div>";
+						echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["boatid"].")'>View Record</button> <label><b>Boat Id:</b></label> ".$result["boatid"].", <label><b>Boat Name:</b></label> ".$result["boatname"].", <label><b>Reuqested At:</b></label> ".$result["createdat"]."</div>";
 					}
 				}
 				?>

@@ -26,7 +26,7 @@ $createdat=date("Y-m-d h:m:s");
 // echo"<br>2019-10-09 05:24:05";
 $profilepicture="";
 $profilepictureurl="";
-$status=3;
+$status=1;
 
 
 if($confirm_password==$password)

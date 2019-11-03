@@ -68,10 +68,10 @@ $index=1;
 				<?php
 				if($check_rows_pending_query > 0)
 				{
-					echo "<label>Pending Request </label>";
+					echo "<label><b>Pending Requests</b> </label>";
 					while($result=mysqli_fetch_assoc($execute_pending_query))
 					{
-						echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["id"].")'>View Record</button> <label>User Id:</label> ".$result["id"].", <label>User Name:</label> ".$result["username"].", <label>Reuqested At:</label> ".$result["createdat"]."</div>";
+						echo "<br><div class='pendingbo'><button type='submit'  class='btn btn-xs btn-primary' style='padding: 0px 4px !important;'  onclick='viewrecord(".$result["id"].")'>View Record</button> <label><b>User Id:</b></label> ".$result["id"].", <label><b>User Name:</b></label> ".$result["username"].", <label><b>Requested At:</b></label> ".$result["createdat"]."</div>";
 					}
 				}
 				?>
