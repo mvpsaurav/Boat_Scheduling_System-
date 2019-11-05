@@ -118,7 +118,7 @@ $index=1;
                                                <input type="text" name="traveler[0][]">
                                            </div>
                                            <div class="col">
-                                                <label>Age</label>
+                                                <label>Age</label><br>
                                                 <input type="text" name="traveler[1][]">
                                            </div>
                                            <div class="col">
@@ -265,7 +265,7 @@ $input.clockpicker('hidden');
   <script>
       function addtraveler()
       {
-        var fields= ' <div class="wrapper" id="reservation_wrapper"><div class="row"><div class="col"><label>Name</label><input type="text" name="traveler[0][]"></div><div class="col"><label>Age </label><input type="text" name="traveler[1][]"></div><div class="col"><label>Gender</label><input type="text" name="traveler[2][]"></div></div><div class="row"><div class="col"><label>ID Type</label><input type="text" name="traveler[3][]"></div><div class="col"><label>ID Number</label><input type="text" name="traveler[4][]"></div><div class="col"><label>Contact Number</label><input type="text" name="traveler[5][]"></div></div></div>';
+        var fields= ' <div class="wrapper" id="reservation_wrapper"><div class="row"><div class="col"><label>Name</label><br><input type="text" name="traveler[0][]"></div><div class="col"><label>Age</label><br><input type="text" name="traveler[1][]"></div><div class="col"><label>Gender</label><br><input type="text" name="traveler[2][]"></div></div><div class="row"><div class="col"><label>ID Type</label><input type="text" name="traveler[3][]"></div><div class="col"><label>ID Number</label><input type="text" name="traveler[4][]"></div><div class="col"><label>Contact Number</label><input type="text" name="traveler[5][]"></div></div></div>';
         $("#test").append(fields);        
       }
     </script>

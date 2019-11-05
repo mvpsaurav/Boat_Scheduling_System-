@@ -102,7 +102,7 @@ if(!empty($boatname || $boatnumber ))
       }
     }
   
-     header("location: ../../modules/admin/boat_listing.php");
+     header("location: ../../modules/bo/boat_listing.php");
   
   }
 }

@@ -12,7 +12,7 @@ if(!empty($boatname || $boatnumber ))
   $weightcapacity=$_POST["weightcapacity"];
   $brandname=$_POST["brandname"];
   $modelname=$_POST["modelname"];
-  $status=1;
+  $status=3;
   $createdat=date("Y-m-d h:m:s");
   $logo_time=date("hms");
   $time=$_POST['time'];
@@ -46,7 +46,7 @@ if(!empty($boatname || $boatnumber ))
               $port_query="INSERT INTO boat_route (boatid,portid,status) VALUES ('".$boatid."','".$data."',1)";
               $execute_port_query=mysqli_query($connect,$port_query);        
             }
-            header("location: ../../modules/admin/boat_listing.php");
+            header("location: ../../modules/bo/boat_listing.php");
         }
       else
       {
@@ -59,7 +59,7 @@ if(!empty($boatname || $boatnumber ))
   }
 }
 else{
-  header("location: ../../modules/admin/boat_listing.php?error=fieldsempty");
+  header("location: ../../modules/bo/boat_listing.php?error=fieldsempty");
 }
 
 

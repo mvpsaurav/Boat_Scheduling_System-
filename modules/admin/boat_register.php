@@ -10,7 +10,7 @@
  ?>
  
  <!-- Modal content-->
-	<form action="../../scripts/admin/boat_register_script.php" method="post" >
+	<form action="../../scripts/admin/boat_register_script.php" method="post" enctype="multipart/form-data">
       <div class="modal-header" onload="timeselecter()">
         <h4 class="modal-title">Add Boat</h4>
       </div>
@@ -39,7 +39,13 @@
           <div class="col-4"><label>Brand Name</label><input type="text" name="brandname"></div>
           <div class="col-4"><label>Model Name</label><input type="text" name="modelname"></div>
           <!-- <div class="col-4"><label></label>Gender: Male       <input type="radio" name="gender" value="1">Female  <input type="radio" name="gender" value="2">other                                                         <input type="radio" name="gender" value="3"></div> -->
-      	</div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <label>Boat Logo</label>
+          </div>
+          <div class="col-4"><input type="file" name="boat_logo"></div>
+        </div>
         <div class="row">
           <div class="col"><label>Day</label></div>
           <div class="col"><label>Departure time</label></div>

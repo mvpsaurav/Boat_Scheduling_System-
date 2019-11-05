@@ -29,7 +29,7 @@ $index=1;
 									?>
 									<div class="wrapper boat_content">
 										<div id="boat_listing_logo">
-											<img src="../../includes/bo/boat_logo/dummyimg.jpg">
+											<img src="<?php echo $data['boatlogourl']?>">
 										</div>
 										<div id="boat_desc">
 											<div class="row">
@@ -48,7 +48,7 @@ $index=1;
 												<div class="col"><label><b>Seats Available :</b></label> <?php echo $data['personcapacity']?></div>
 											</div>
 											<button class="custombutton" type="button" onclick="editemp(<?= $data['boatid'] ?>)" data-toggle="modal" data-target="#myModal">Edit</button>
-											<a class="custombutton" href="#">Delete</a>
+											<a class="custombutton" href="../../scripts/bo/boat_delete_script.php?id=<?=$data['boatid']?>">Delete</a>
 										</div>
 									</div>
 									<?php
