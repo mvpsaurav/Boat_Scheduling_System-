@@ -379,7 +379,7 @@ box-shadow: 0px 1px 6px black ;
     padding: 10px 5px ;
     width: 30%;
 }
-.boat_content button
+.custombutton
 {
     /* position: inherit;
     top:50%;
@@ -390,4 +390,25 @@ box-shadow: 0px 1px 6px black ;
     -webkit-text-stroke: medium;
     color: #202538;
     background-color: white;
+}
+.home_container
+{
+    /*width: 60%;
+    height: 50%;*/
+    background-color: #80404033;
+    display: -webkit-inline-box;
+    position: static;
+    padding: 100px 60px 100px 60px;
+}
+.card
+{
+    position: relative;
+    width: 180px;
+    height: 220px;
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+    padding: 0px;   
+    margin: 0px 10px ;
+    background-image:url("");
 }
