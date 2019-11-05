@@ -103,7 +103,7 @@ if(!empty($_SESSION['userrole']))
           </div>
 		</div>
 		</div>
-
+		Have an Account? <a href="login.php">Login now</a>
       	<button type="submit">Register</button>
 	</form>
 	</div>

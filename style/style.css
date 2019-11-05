@@ -351,3 +351,43 @@ box-shadow: 0px 1px 6px black ;
 {
     padding: 0px 15px;
 }
+.boat_content label
+{
+    margin: 0px !important;
+}
+#boat_listing_logo
+{   
+    padding: 10px 10px 10px 30px;
+    /* width: 130px; */
+    float: left;
+}
+#boat_listing_logo img
+{
+    width: 140px;
+    height: 150px;
+    border-radius: 8px;
+
+
+}
+.boat_content
+{
+    height: 170px;
+    /* padding: 2px; */
+}
+#boat_desc{
+    float: left;
+    padding: 10px 5px ;
+    width: 30%;
+}
+.boat_content button
+{
+    /* position: inherit;
+    top:50%;
+    right:-40%; */
+    padding: 0px 0px;
+    width: 90px;
+    border-radius: 20px;
+    -webkit-text-stroke: medium;
+    color: #202538;
+    background-color: white;
+}

@@ -32,6 +32,7 @@ $date= date("d-M-Y", strtotime($date));
 <div class="container">
     <div class="row">
             <div class="col">
+                <a href="generate_token.php">Book Another Ticket</a>
                 <div class="wrapper" id="ticket_container">
                     <div class="row">
                         <div class="col">

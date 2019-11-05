@@ -35,6 +35,7 @@ if(!empty($journeyto))
         $select_trip_query="SELECT * FROM trips WHERE boatid=".$boat." && tripdate='".$date."'";
         $execute_select_trip_query=mysqli_query($connect,$select_trip_query);
         $trip_row_count=mysqli_num_rows($execute_select_trip_query);
+        //if there are existing trips,then we get total trips of all boats in an array
         if($trip_row_count != 0)
         {
             while($trip=mysqli_fetch_assoc($execute_select_trip_query))
@@ -42,6 +43,7 @@ if(!empty($journeyto))
                 $tripdata[]=$trip;
             }
         }
+        //if there are no existing trips,then we create an array of boats which has only one trip(tripnumber = 0).
         elseif($trip_row_count == 0)
         {
             $select_seats_query="SELECT personcapacity FROM boatdetails WHERE boatid='".$boat."'";
@@ -54,6 +56,7 @@ if(!empty($journeyto))
     if(!empty($tripdata))
     {
     $count=count($tripdata);
+    //we create an array to check how many trips of every boat is occured in the array(tripdata).
         for($a=0;$a<$count;$a++)
         {
             $tripcount=0;
@@ -85,25 +88,28 @@ if(!empty($journeyto))
             }
         }
     }
+    //array(currenttrip) has the latest trip of all the boats in unsorted manner.
     foreach($currenttrip as $trip)
     {
-    $select_ticket_query="SELECT count(*),boatid FROM unreserved_ticket_log WHERE tripid='".$trip['tripid']."' && boatid='".$trip['boatid']."'" ;
-    if($execute_select_ticket_query=mysqli_query($connect,$select_ticket_query))
-    {
-        while($ticket=mysqli_fetch_assoc($execute_select_ticket_query))
+        //this is to get the tickets of only the latest trip of the boats.
+        $select_ticket_query="SELECT count(*),boatid FROM unreserved_ticket_log WHERE tripid='".$trip['tripid']."' && boatid='".$trip['boatid']."'" ;
+        if($execute_select_ticket_query=mysqli_query($connect,$select_ticket_query))
         {
-            $ticketdata[]=$ticket;
+            while($ticket=mysqli_fetch_assoc($execute_select_ticket_query))
+            {
+                $ticketdata[]=$ticket;
+            }
         }
-    }
     }
     $count=count($currenttrip);
     for($a=0;$a<$count;$a++)
     {
-    $master_data[]=array("boatid"=>$currenttrip[$a]['boatid'],"availableseats"=>$currenttrip[$a]['availableseats'],"tripnumber"=>$currenttrip[$a]['tripnumber'],"tripid"=>$currenttrip[$a]['tripid'],"ticketcount"=>$ticketdata[$a]['count(*)']);
+        $master_data[]=array("boatid"=>$currenttrip[$a]['boatid'],"availableseats"=>$currenttrip[$a]['availableseats'],"tripnumber"=>$currenttrip[$a]['tripnumber'],"tripid"=>$currenttrip[$a]['tripid'],"ticketcount"=>$ticketdata[$a]['count(*)']);
     }
     // print_r($master_data);
     $array_count=count($master_data);
     $temp=0;
+    //shorting the array of boats with respect to trip number in ascending order using bubbleshort.
     if($array_count>1)
     {
         for($a=0;$a<$array_count;$a++)
@@ -122,13 +128,13 @@ if(!empty($journeyto))
     }
     $array;
     // print_r($master_data);
+    //to get the maximum tripnumber in the array.
     foreach($master_data as $data)
     {
         $maxtripnumbercount=$data['tripnumber'];
     }
     for($a=0;$a<=$maxtripnumbercount;$a++)
-    {
-        // echo $a;
+    {   
         foreach($master_data as $boat)
         {   
             if($a==$boat['tripnumber'])
@@ -136,30 +142,42 @@ if(!empty($journeyto))
                 $array[$a][]=$boat;
             }
         }
-        $triparray_count=count($array[$a]);
-        if($triparray_count>1)
+    }
+    // print_r($array);
+    //for shorting array with respect to trips.
+    for($a=0;$a<=$maxtripnumbercount;$a++)
+    {
+        if(!empty($array[$a]))
         {
-            // print_r($array);
-            for($c=0;$c<$triparray_count;$c++)
+            $triparray_count=count($array[$a]);
+            if($triparray_count>1)
             {
-                for($d=0;$d<$triparray_count-1;$d++)
+                for($c=0;$c<$triparray_count;$c++)
                 {
-                    if($array[$a][$d]['ticketcount']>$array[$a][$d+1]['ticketcount'])
-                        {
-                            $temp=$array[$a][$d];
-                            $array[$a][$d]=$array[$a][$d+1];
-                            $array[$a][$d+1]=$temp;
-                        }
+                    for($d=0;$d<$triparray_count-1;$d++)
+                    {
+                        if($array[$a][$d]['ticketcount']>$array[$a][$d+1]['ticketcount'])
+                            {
+                                $temp=$array[$a][$d];
+                                $array[$a][$d]=$array[$a][$d+1];
+                                $array[$a][$d+1]=$temp;
+                            }
+                    }
                 }
             }
         }
+        
     }
     // print_r($array);
-    for($a=0;$a<count($array);$a++)
+    for($a=0;$a<=count($array);$a++)
     {
-        for($b=0;$b<count($array[$a]);$b++)
+        if(!empty($array[$a]))
         {
-            $newmaster[]=$array[$a][$b];
+            for($b=0;$b<count($array[$a]);$b++)
+            {
+
+                    $newmaster[]=$array[$a][$b];
+            }
         }
     }
     // print_r($newmaster);

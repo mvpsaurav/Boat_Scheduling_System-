@@ -3,8 +3,7 @@ session_start();
 ?>
 <html>
     <head>
-        <title>Boat Token System
-        </title>
+        <title>Boat Token System</title>
         <link rel="stylesheet" href="../../style/style.css">
         <link rel="stylesheet" href="../../style/bootstrap.min.css">
         <link rel="stylesheet" href="../../style/bootstrapdatatable.min.css">      

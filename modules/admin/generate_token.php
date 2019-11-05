@@ -205,7 +205,7 @@ $index=1;
 		data:{journeyto : portid,journeyfrom : a},
 		success:function(response)
         {
-            // console.log(response);
+            console.log(response);
            var data=response.split("&");
 		   $("#boat_name").html(data[0]);
             $("#boat_number").html(data[1]);

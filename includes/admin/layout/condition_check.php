@@ -1,4 +1,8 @@
 <?php 
+if(empty($_SESSION))
+{
+    header('location:  ../../modules/admin/login.php?error=notloggendin');
+}
 $roleid=$_SESSION['userrole'];
 $url=$_SERVER['REQUEST_URI'];
 if($roleid>2)
