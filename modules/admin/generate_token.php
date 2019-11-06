@@ -88,7 +88,7 @@ $index=1;
                                         <label>Boarding Port</label>
                                     </div>
                                     <div class="col">
-                                        <select name="journey_from" onchange="getdestination2(this.value)">
+                                        <select name="journey_from" id="source" onchange="getdestination2(this.value)">
                                             <option>Select Station</option>
                                             <?php  
                                                 while($result=mysqli_fetch_assoc($execute_query2))
@@ -104,11 +104,19 @@ $index=1;
                                         <label>Destination Port</label>
                                     </div>
                                     <div class="col">
-                                        <select name="journey_to" id="destination">
+                                        <select name="journey_to" id="destination" onchange="get_reserved_boat(this.value)">
                                             <option>choose station
                                             </option>
                                         </select>
                                     </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col"><label>Boats</label>
+                                  </div>
+                                  <div class="col" ><select id="reserved_boats" name="boatid">
+                                    <option>Please Select Destination Port</option>
+
+                                  </select></div>
                                 </div>
                                <div class="traveler_details" id="test">
                                    <div class="wrapper" id="reservation_wrapper">
@@ -198,12 +206,12 @@ $index=1;
     }
     function getboat(portid)
     {   
-        var a = $('#journey_from').val();;
-        $.ajax({
-		type:"POST",
-		url:"../../scripts/admin/getboat.php",
-		data:{journeyto : portid,journeyfrom : a},
-		success:function(response)
+      var a = $('#journey_from').val();;
+      $.ajax({
+    		type:"POST",
+    		url:"../../scripts/admin/getboat.php",
+    		data:{journeyto : portid,journeyfrom : a},
+    		success:function(response)
         {
             console.log(response);
            var data=response.split("&");
@@ -211,12 +219,6 @@ $index=1;
             $("#boat_number").html(data[1]);
             $("#available_seats").html(data[2]);
             $("#input_container").html(data[3]);
-
-        //    console.log(data);
-        //     var name=data[0];
-        //     var id=data[1];
-		//    $("#boat_name").html(name);
-        //    $("#boat_id").html(id);
 		}
 
 		 })
@@ -224,11 +226,11 @@ $index=1;
     function changeboat(boatid)
     {
         // alert(boatid);   
-        $.ajax({
-		type:"POST",
-		url:"../../scripts/admin/change_boat.php",
-		data:"boatid="+boatid,
-		success:function(response)
+      $.ajax({
+    		type:"POST",
+    		url:"../../scripts/admin/change_boat.php",
+    		data:"boatid="+boatid,
+    		success:function(response)
             {
             // $("#destination").html(response);
             // alert(response);
@@ -242,7 +244,21 @@ $index=1;
             }
         })     
     }
-
+    function get_reserved_boat(portid)
+    {
+      var a = $('#source').val();;
+      // console.log(a);
+      $.ajax({
+        type:"POST",
+        url:"../../scripts/admin/get_reserved_boat.php",
+        data:{journeyto : portid,journeyfrom : a},
+        success:function(response)
+        {
+            console.log(response);
+            $("#reserved_boats").html(response);
+        }
+     })
+    }
 </script>
 <script>
 var $input = $('.clock').clockpicker({
