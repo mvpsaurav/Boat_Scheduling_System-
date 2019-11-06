@@ -8,7 +8,8 @@ $count_rows=mysqli_num_rows($execute_query);
 $result_data=mysqli_fetch_assoc($execute_query);
 if($count_rows!=0)
 {
-    if($result_data['password']==$password)
+ $password_check=password_verify($password,$result_data['password']);
+    if($password_check==true)
     {
         session_start();
         $_SESSION['userid']=$result_data['id'];
@@ -24,7 +25,7 @@ if($count_rows!=0)
             echo "userrole not boat owner";
         }
     }
-    else
+    elseif($password_check==false)
     {
         header('location:  ../../modules/bo/login.php?error=wrongpassword');
     }

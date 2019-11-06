@@ -8,6 +8,9 @@ if(!empty($_SESSION['userrole']))
 	    header("location: boat_listing.php");
 	}
 }
+require"../../includes/admin/dbconnect.php";
+ $getcounrty_query="SELECT * FROM country";
+ $execute_getcounrty_query=mysqli_query($connect,$getcounrty_query);
 ?>
 
 <div class="login_form_body">
@@ -115,7 +118,36 @@ if(!empty($_SESSION['userrole']))
 
 
 
+<script>
+        function getstate(id)
+        {
+        $.ajax({
+        type:"POST",
+        url:"../admin/getstate.php",
+        data:"country_id="+id,
+        success:function(state)
+        {
+          $("#state").html(state);
+          // alert(state);
+        }
+        })
+        }
 
+        function getcity(id)
+        {
+        $.ajax({
+        type:"POST",
+        url:"../admin/getcity.php",
+        data:"state_id="+id,
+        success:function(city)
+        {
+          $("#city").html(city);
+          // alert(city);
+        }
+        })
+        }
+
+        </script>
 
 <!------------- Code ends here------------->
 <?php include"../../includes/bo/layout/footer.php";?>

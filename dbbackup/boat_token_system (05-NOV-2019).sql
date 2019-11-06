@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 08:07 AM
+-- Generation Time: Nov 05, 2019 at 09:50 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -21,6 +21,40 @@ SET time_zone = "+00:00";
 --
 -- Database: `boat_token_system`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `boatdetails`
+--
+
+CREATE TABLE `boatdetails` (
+  `boatid` int(11) NOT NULL,
+  `boatowner` int(11) DEFAULT NULL,
+  `boatname` varchar(30) DEFAULT NULL,
+  `boatnumber` varchar(30) DEFAULT NULL,
+  `personcapacity` bigint(20) DEFAULT NULL,
+  `weightcapacity` bigint(10) DEFAULT NULL,
+  `status` int(1) NOT NULL DEFAULT 0,
+  `boatlogo` varchar(50) DEFAULT NULL,
+  `boatlogourl` varchar(50) DEFAULT NULL,
+  `brandname` varchar(30) DEFAULT NULL,
+  `modelname` varchar(30) DEFAULT NULL,
+  `createdat` datetime DEFAULT NULL,
+  `createdby` int(11) DEFAULT NULL,
+  `updatedat` datetime DEFAULT NULL,
+  `updatedby` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `boatdetails`
+--
+
+INSERT INTO `boatdetails` (`boatid`, `boatowner`, `boatname`, `boatnumber`, `personcapacity`, `weightcapacity`, `status`, `boatlogo`, `boatlogourl`, `brandname`, `modelname`, `createdat`, `createdby`, `updatedat`, `updatedby`) VALUES
+(33, 5, 'Rajkumari', '123456', 44, 800, 1, '', '', 'Touring', '44ferry', '2019-10-30 10:10:24', 1, '2019-10-30 12:10:48', 1),
+(34, 5, 'Saraswati ', '3450', 40, 2800, 1, '', '', 'Touring', '40ferry', '2019-10-30 11:10:48', 1, '2019-10-30 11:10:06', 1),
+(35, 6, 'Shivgamni', '3656', 44, 3080, 1, '', '', 'Touring', '44ferry', '2019-10-30 11:10:21', 1, NULL, NULL),
+(36, 6, 'Avnush', '9654', 44, 3080, 1, '', '', 'Touring', '44ferry', '2019-10-30 11:10:52', 1, '2019-10-31 04:10:08', 1);
 
 -- --------------------------------------------------------
 
@@ -71,6 +105,93 @@ INSERT INTO `boatowner` (`id`, `username`, `name`, `email`, `adhaarnumber`, `pan
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `boatschedule`
+--
+
+CREATE TABLE `boatschedule` (
+  `id` int(11) NOT NULL,
+  `boatid` int(11) NOT NULL,
+  `day` int(1) DEFAULT NULL,
+  `departuretime` varchar(20) DEFAULT NULL,
+  `arrivaltime` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `boatschedule`
+--
+
+INSERT INTO `boatschedule` (`id`, `boatid`, `day`, `departuretime`, `arrivaltime`) VALUES
+(29, 33, 1, '1:00', '1:00'),
+(30, 33, 2, '', ''),
+(31, 33, 3, '', ''),
+(32, 33, 4, '', ''),
+(33, 33, 5, '', ''),
+(34, 33, 6, '', ''),
+(35, 33, 7, '', ''),
+(36, 34, 1, '6:00', '14:00'),
+(37, 34, 2, '6:00', '14:00'),
+(38, 34, 3, '6:00', '14:00'),
+(39, 34, 4, '6:00', '14:00'),
+(40, 34, 5, '4:00', '11:30'),
+(41, 34, 6, '6:00', '16:00'),
+(42, 34, 7, '6:00', '13:00'),
+(43, 35, 1, '4:00', '14:00'),
+(44, 35, 2, '6:00', '14:00'),
+(45, 35, 3, '6:00', '14:00'),
+(46, 35, 4, '6:00', '16:00'),
+(47, 35, 5, '6:00', '14:00'),
+(48, 35, 6, '6:00', '14:00'),
+(49, 35, 7, '6:00', '14:00'),
+(50, 36, 1, '', ''),
+(51, 36, 2, '', ''),
+(52, 36, 3, '', ''),
+(53, 36, 4, '', ''),
+(54, 36, 5, '', ''),
+(55, 36, 6, '', ''),
+(56, 36, 7, '6:00', '14:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `boat_route`
+--
+
+CREATE TABLE `boat_route` (
+  `routeid` int(10) NOT NULL,
+  `boatid` int(10) NOT NULL,
+  `portid` int(10) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `boat_route`
+--
+
+INSERT INTO `boat_route` (`routeid`, `boatid`, `portid`, `status`) VALUES
+(13, 33, 1, 1),
+(14, 33, 2, 1),
+(15, 33, 3, 1),
+(16, 33, 4, 1),
+(17, 33, 5, 1),
+(18, 34, 1, 1),
+(19, 34, 2, 1),
+(20, 34, 3, 1),
+(21, 34, 4, 1),
+(22, 34, 5, 1),
+(23, 35, 1, 1),
+(24, 35, 2, 1),
+(25, 35, 3, 1),
+(26, 35, 4, 1),
+(27, 35, 5, 1),
+(28, 36, 1, 1),
+(29, 36, 2, 1),
+(33, 36, 3, 1),
+(34, 36, 4, 1),
+(35, 36, 5, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `city`
 --
 
@@ -104,6 +225,31 @@ CREATE TABLE `country` (
 
 INSERT INTO `country` (`id`, `countryname`) VALUES
 (1, 'India');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ports`
+--
+
+CREATE TABLE `ports` (
+  `portid` int(10) NOT NULL,
+  `portname` varchar(30) NOT NULL,
+  `stateid` int(10) NOT NULL,
+  `portlongitude` bigint(20) NOT NULL,
+  `portlatitude` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ports`
+--
+
+INSERT INTO `ports` (`portid`, `portname`, `stateid`, `portlongitude`, `portlatitude`) VALUES
+(1, 'Chakeri', 6, 0, 0),
+(2, 'Farukhabad', 6, 0, 0),
+(3, 'Fatehgarh', 6, 0, 0),
+(4, 'Kannauj', 6, 0, 0),
+(5, 'Varanasi', 6, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -155,6 +301,64 @@ INSERT INTO `state` (`stateid`, `countryid`, `statename`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `trips`
+--
+
+CREATE TABLE `trips` (
+  `tripid` bigint(12) NOT NULL,
+  `tripnumber` int(10) DEFAULT NULL,
+  `boatid` int(11) DEFAULT NULL,
+  `tripdate` varchar(20) DEFAULT NULL,
+  `availableseats` int(10) DEFAULT NULL,
+  `createdat` datetime DEFAULT NULL,
+  `updatedat` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `trips`
+--
+
+INSERT INTO `trips` (`tripid`, `tripnumber`, `boatid`, `tripdate`, `availableseats`, `createdat`, `updatedat`) VALUES
+(18, 1, 33, '2019-11-03', 42, '2019-11-03 19:29:57', NULL),
+(19, 1, 34, '2019-11-03', 38, '2019-11-03 19:31:58', NULL),
+(20, 1, 35, '2019-11-03', 42, '2019-11-03 19:33:03', NULL),
+(21, 1, 33, '2019-11-04', 42, '2019-11-04 18:01:25', NULL),
+(22, 2, 34, '2019-11-04', 39, '2019-11-04 18:05:51', NULL),
+(23, 1, 35, '2019-11-04', 41, '2019-11-04 18:06:59', NULL),
+(24, 1, 36, '2019-11-04', 39, '2019-11-04 18:07:06', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `unreserved_ticket_log`
+--
+
+CREATE TABLE `unreserved_ticket_log` (
+  `id` int(10) NOT NULL,
+  `boatid` int(10) NOT NULL,
+  `number_of_passenger` int(10) NOT NULL,
+  `portfrom` int(10) NOT NULL,
+  `portto` int(10) NOT NULL,
+  `token` varchar(40) NOT NULL,
+  `tripid` int(10) NOT NULL,
+  `paymentid` int(10) NOT NULL,
+  `bookedat` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `unreserved_ticket_log`
+--
+
+INSERT INTO `unreserved_ticket_log` (`id`, `boatid`, `number_of_passenger`, `portfrom`, `portto`, `token`, `tripid`, `paymentid`, `bookedat`) VALUES
+(21, 35, 2, 1, 2, '3656_NKH_592', 20, 0, '2019-11-03 14:03:03'),
+(22, 33, 2, 1, 2, '123456_MJS_526', 21, 0, '2019-11-04 12:31:25'),
+(23, 34, 1, 1, 4, '3450_VRZ_602', 22, 0, '2019-11-04 12:35:51'),
+(24, 35, 3, 1, 3, '3656_ULO_179', 23, 0, '2019-11-04 12:36:59'),
+(25, 36, 5, 1, 2, '9654_USX_976', 24, 0, '2019-11-04 12:37:06');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -183,10 +387,32 @@ INSERT INTO `users` (`userid`, `username`, `roleid`, `password`, `email`, `mobil
 --
 
 --
+-- Indexes for table `boatdetails`
+--
+ALTER TABLE `boatdetails`
+  ADD PRIMARY KEY (`boatid`),
+  ADD KEY `boatowner` (`boatowner`);
+
+--
 -- Indexes for table `boatowner`
 --
 ALTER TABLE `boatowner`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `boatschedule`
+--
+ALTER TABLE `boatschedule`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `boatid` (`boatid`);
+
+--
+-- Indexes for table `boat_route`
+--
+ALTER TABLE `boat_route`
+  ADD PRIMARY KEY (`routeid`),
+  ADD KEY `boatid` (`boatid`),
+  ADD KEY `portid` (`portid`);
 
 --
 -- Indexes for table `city`
@@ -201,6 +427,12 @@ ALTER TABLE `country`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ports`
+--
+ALTER TABLE `ports`
+  ADD PRIMARY KEY (`portid`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -213,6 +445,18 @@ ALTER TABLE `state`
   ADD PRIMARY KEY (`stateid`);
 
 --
+-- Indexes for table `trips`
+--
+ALTER TABLE `trips`
+  ADD PRIMARY KEY (`tripid`);
+
+--
+-- Indexes for table `unreserved_ticket_log`
+--
+ALTER TABLE `unreserved_ticket_log`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -223,10 +467,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `boatdetails`
+--
+ALTER TABLE `boatdetails`
+  MODIFY `boatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
 -- AUTO_INCREMENT for table `boatowner`
 --
 ALTER TABLE `boatowner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `boatschedule`
+--
+ALTER TABLE `boatschedule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT for table `boat_route`
+--
+ALTER TABLE `boat_route`
+  MODIFY `routeid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `city`
@@ -241,6 +503,12 @@ ALTER TABLE `country`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `ports`
+--
+ALTER TABLE `ports`
+  MODIFY `portid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
@@ -253,10 +521,39 @@ ALTER TABLE `state`
   MODIFY `stateid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `trips`
+--
+ALTER TABLE `trips`
+  MODIFY `tripid` bigint(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `unreserved_ticket_log`
+--
+ALTER TABLE `unreserved_ticket_log`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `boatschedule`
+--
+ALTER TABLE `boatschedule`
+  ADD CONSTRAINT `boatschedule_ibfk_1` FOREIGN KEY (`boatid`) REFERENCES `boatdetails` (`boatid`);
+
+--
+-- Constraints for table `boat_route`
+--
+ALTER TABLE `boat_route`
+  ADD CONSTRAINT `boat_route_ibfk_1` FOREIGN KEY (`boatid`) REFERENCES `boatdetails` (`boatid`),
+  ADD CONSTRAINT `boat_route_ibfk_2` FOREIGN KEY (`portid`) REFERENCES `ports` (`portid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

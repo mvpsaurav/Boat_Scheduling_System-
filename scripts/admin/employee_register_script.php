@@ -11,7 +11,8 @@ $roleid=2;
 
 if($confirm_password==$password)
 {
-  $register_query="INSERT INTO users(username, roleid, password, email, mobilenumber,name) VALUES ('".$username."','".$roleid."','".$password."','".$useremail."','".$mobile_number."','".$fullname."')";
+  $hash_password=password_hash($password, PASSWORD_DEFAULT);
+  $register_query="INSERT INTO users(username, roleid, password, email, mobilenumber,name,status) VALUES ('".$username."','".$roleid."','".$hash_password."','".$useremail."','".$mobile_number."','".$fullname."','1')";
   if($execute_query=mysqli_query($connect,$register_query))
   {
   	header("location: ../../modules/admin/employee_listing.php");

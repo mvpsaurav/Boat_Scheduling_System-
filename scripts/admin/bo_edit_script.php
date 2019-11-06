@@ -37,8 +37,9 @@ else
 {
 if($confirm_password==$password)
 {
+  $hash_password=password_hash($password, PASSWORD_DEFAULT);
   $edit_query="UPDATE boatowner SET 
-  username='".$username."', password='".$password."', email='".$useremail."', mobilenumber='".$mobile_number."',
+  username='".$username."', password='".$hash_password."', email='".$useremail."', mobilenumber='".$mobile_number."',
   name='".$fullname."',adhaarnumber='".$aadaarnumber."',pannumber='".$pannumber."',gender='".$gender."',
   bankname='".$bank_name."',ifsc='".$ifsc."',accountname='".$account_name."',accountnumber='".$account_number."',
   profilepicture='".$profilepicture."',profilepictureurl='".$profilepictureurl."',addressline1='".$address1."',

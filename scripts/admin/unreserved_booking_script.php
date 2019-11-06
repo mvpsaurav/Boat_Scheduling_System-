@@ -45,6 +45,23 @@ else
             }
         }
     }
+    // elseif()
+    // {
+    //     $availableseats=$availableseats-$number_of_passengers;
+    //     $create_trip_query="INSERT INTO trips (tripnumber,boatid,tripdate,availableseats,createdat) VALUES ('1','".$boatid."','".$date."','".$availableseats."','".$createdat."')";
+    //     if($execute_create_trip_query=mysqli_query($connect,$create_trip_query))
+    //     {
+    //         $get_tripid_query="SELECT LAST_INSERT_ID();";
+    //         $execute_get_tripid_query=mysqli_query($connect,$get_tripid_query);
+    //         $tripid_array=mysqli_fetch_assoc($execute_get_tripid_query);
+    //         $tripid=$tripid_array['LAST_INSERT_ID()']; 
+    //         $create_ticket_query="INSERT INTO unreserved_ticket_log (portfrom,portto,boatid,number_of_passenger,tripid,token,bookedat) VALUES ('".$journey_from."','".$journey_to."','".$boatid."','".$number_of_passengers."','".$tripid."','".$token."','".$createdat."')";
+    //         if($execute_create_ticket_query=mysqli_query($connect,$create_ticket_query))
+    //         {
+    //             header("Location: ../../modules/admin/print_unreserved_ticket.php?ticket=generated&token=".$token);
+    //         }
+    //     }
+    // }
     else
     {
         $availableseats=$availableseats-$number_of_passengers;

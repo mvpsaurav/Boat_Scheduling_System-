@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 09:50 AM
+-- Generation Time: Nov 06, 2019 at 10:03 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -37,7 +37,7 @@ CREATE TABLE `boatdetails` (
   `weightcapacity` bigint(10) DEFAULT NULL,
   `status` int(1) NOT NULL DEFAULT 0,
   `boatlogo` varchar(50) DEFAULT NULL,
-  `boatlogourl` varchar(50) DEFAULT NULL,
+  `boatlogourl` varchar(350) DEFAULT NULL,
   `brandname` varchar(30) DEFAULT NULL,
   `modelname` varchar(30) DEFAULT NULL,
   `createdat` datetime DEFAULT NULL,
@@ -51,10 +51,14 @@ CREATE TABLE `boatdetails` (
 --
 
 INSERT INTO `boatdetails` (`boatid`, `boatowner`, `boatname`, `boatnumber`, `personcapacity`, `weightcapacity`, `status`, `boatlogo`, `boatlogourl`, `brandname`, `modelname`, `createdat`, `createdby`, `updatedat`, `updatedby`) VALUES
-(33, 5, 'Rajkumari', '123456', 44, 800, 1, '', '', 'Touring', '44ferry', '2019-10-30 10:10:24', 1, '2019-10-30 12:10:48', 1),
-(34, 5, 'Saraswati ', '3450', 40, 2800, 1, '', '', 'Touring', '40ferry', '2019-10-30 11:10:48', 1, '2019-10-30 11:10:06', 1),
-(35, 6, 'Shivgamni', '3656', 44, 3080, 1, '', '', 'Touring', '44ferry', '2019-10-30 11:10:21', 1, NULL, NULL),
-(36, 6, 'Avnush', '9654', 44, 3080, 1, '', '', 'Touring', '44ferry', '2019-10-30 11:10:52', 1, '2019-10-31 04:10:08', 1);
+(33, 5, 'Rajkumari', '123456', 44, 800, 1, '0711025dummyimg.jpg', '../../includes/bo/boat_logo/07111250711025dummyimg.jpg', 'Touring', '44ferry', '2019-10-30 10:10:24', 1, '2019-11-05 07:11:12', 5),
+(34, 5, 'Saraswati ', '3450', 40, 2800, 1, 'dummyimg.jpg', '../../includes/bo/boat_logo/0711175dummyimg.jpg', 'Touring', '40ferry', '2019-10-30 11:10:48', 1, '2019-11-05 07:11:17', 1),
+(35, 6, 'Shivgamni', '3656', 44, 3080, 1, '0711175dummyimg.jpg', '../../includes/bo/boat_logo/06115460711175dummyimg.jpg', 'Touring', '44ferry', '2019-10-30 11:10:21', 1, '2019-11-06 06:11:54', 6),
+(36, 6, 'Avnush', '9654', 44, 3080, 1, '0711175dummyimg.jpg', '../../includes/bo/boat_logo/06115960711175dummyimg.jpg', 'Touring', '44ferry', '2019-10-30 11:10:52', 1, '2019-11-06 06:11:59', 6),
+(39, 5, 'Rajkumari', '123456', 20, 800, 2, 'asdsad.jpg', '../../includes/bo/boat_logo/0711295asdsad.jpg', 'brand', 'model', '2019-11-05 07:11:29', 1, '2019-11-05 07:11:49', 5),
+(40, 5, 'nameupdatedagain', '3450', 20, 800, 2, 'dummyimg.jpg', '../../includes/bo/boat_logo/0711025dummyimg.jpg', 'brand', 'model', '2019-11-05 07:11:52', 5, '2019-11-05 07:11:02', 5),
+(41, 5, 'name', '3450', 20, 800, 2, 'asdsad.jpg', '../../includes/bo/boat_logo/0711205asdsad.jpg', 'brand', 'model', '2019-11-05 07:11:20', 5, NULL, NULL),
+(42, 9, 'Rajkumari', '123456', 44, 2800, 2, '0711025dummyimg.jpg', '../../includes/bo/boat_logo/02114190711025dummyimg.jpg', '', '', '2019-11-06 02:11:41', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,7 +74,7 @@ CREATE TABLE `boatowner` (
   `adhaarnumber` varchar(30) DEFAULT NULL,
   `pannumber` varchar(20) DEFAULT NULL,
   `mobilenumber` bigint(10) DEFAULT NULL,
-  `password` varchar(30) DEFAULT NULL,
+  `password` longtext DEFAULT NULL,
   `gender` int(1) DEFAULT NULL,
   `bankname` varchar(30) DEFAULT NULL,
   `ifsc` varchar(10) DEFAULT NULL,
@@ -97,10 +101,12 @@ CREATE TABLE `boatowner` (
 --
 
 INSERT INTO `boatowner` (`id`, `username`, `name`, `email`, `adhaarnumber`, `pannumber`, `mobilenumber`, `password`, `gender`, `bankname`, `ifsc`, `accountname`, `accountnumber`, `status`, `roleid`, `profilepicture`, `profilepictureurl`, `addressline1`, `addressline2`, `cityid`, `stateid`, `countryid`, `zipcode`, `createdat`, `createdby`, `updatedat`, `updatedby`) VALUES
-(5, 'nathu', 'Nathu Lal', '', '458298567584', 'DF75W7851', 8456971357, 'nathu', 1, 'BANK OF INDIA', 'BOI0701', 'NATHU LAL', '70105001', 1, 3, '', '', 'H-21,SEC 3', 'govindpuram', 1, 6, 1, 201001, '2019-10-30 10:10:29', 1, NULL, NULL),
-(6, 'bahadur', 'Bahadur Singh', '', '758642586548', 'RT45R7542', 7859642574, 'bahadur', 1, 'Allahabad', 'ALLA0058', 'Bahadur Singh', '58694586', 1, 3, '', '', 'D-33 sec 5', 'Govindpuram', 1, 6, 1, 201001, '2019-10-30 10:10:08', 1, NULL, NULL),
+(5, 'nathu', 'Nathu Lal', '', '458298567584', 'DF75W7851', 8456971357, '$2y$10$W.C2pHzDpTJURDjRHqfIxuHYFolvDirdbfKEgm8cnmks85Kyw4TgC', 1, 'BANK OF INDIA', 'BOI0701', 'NATHU LAL', '70105001', 1, 3, '', '', 'H-21,SEC 3', 'govindpuram', 1, 6, 1, 201001, '2019-10-30 10:10:29', 1, '2019-11-06 06:11:41', 1),
+(6, 'bahadur', 'Bahadur Singh', '', '758642586548', 'RT45R7542', 7859642574, '$2y$10$D8wdoeZpiDc5J/mB2OJTzeDI0nsMMd8qNuS3XZNtgCJLgLXqStj8.', 1, 'Allahabad', 'ALLA0058', 'Bahadur Singh', '58694586', 1, 3, '', '', 'D-33 sec 5', 'Govindpuram', 1, 6, 1, 201001, '2019-10-30 10:10:08', 1, '2019-11-06 06:11:31', 1),
 (7, 'dalda', 'Dalda panwar', 'surti@gmail.com', '4568285698744', 'YE45E785', 7854695245, 'dalda', 1, 'Bank of India', 'BOI00701', 'Dalda panwar', '701001586', 3, 3, '', '', 'K-15 sec 3', 'Govind puram', 1, 6, 1, 201001, '2019-10-30 10:10:29', 1, NULL, NULL),
-(8, 'test', 'asdw', 'asdwqe@wemail.com', '123456789123', 'asdf1234', 321654987, 'asdf', 1, 'allahabad', 'alla12334', 'acc name', '12345487', 1, 3, '', '', 'govind puram', '', 0, 0, 0, 20302, '2019-11-04 06:11:43', 0, NULL, NULL);
+(8, 'test', 'asdw', 'asdwqe@wemail.com', '123456789123', 'asdf1234', 321654987, 'asdf', 1, 'allahabad', 'alla12334', 'acc name', '12345487', 2, 3, '', '', 'govind puram', '', 0, 0, 0, 20302, '2019-11-04 06:11:43', 0, NULL, NULL),
+(9, 'chanchal', 'chanchal bhasker', 'asdasd@gmail.com', '1231231', 'asd', 123123, 'asdf', 2, '', '', '', '', 2, 3, '', '', '', '', 0, 0, 0, 0, '2019-11-06 02:11:50', 0, NULL, NULL),
+(10, 'vishu', 'Vishu Mandal', 'vishum.10m@gmail.com', '12345678912', 'asdf45612', 7894561231, '$2y$10$djm1jdwz5Yxbi5ZXRKrn.ueDNgBFnUtrBa2ucjvjuuV', 1, '', '', '', '', 1, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-11-06 06:11:58', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -121,26 +127,26 @@ CREATE TABLE `boatschedule` (
 --
 
 INSERT INTO `boatschedule` (`id`, `boatid`, `day`, `departuretime`, `arrivaltime`) VALUES
-(29, 33, 1, '1:00', '1:00'),
+(29, 33, 1, '', ''),
 (30, 33, 2, '', ''),
 (31, 33, 3, '', ''),
 (32, 33, 4, '', ''),
 (33, 33, 5, '', ''),
 (34, 33, 6, '', ''),
 (35, 33, 7, '', ''),
-(36, 34, 1, '6:00', '14:00'),
-(37, 34, 2, '6:00', '14:00'),
-(38, 34, 3, '6:00', '14:00'),
-(39, 34, 4, '6:00', '14:00'),
-(40, 34, 5, '4:00', '11:30'),
-(41, 34, 6, '6:00', '16:00'),
+(36, 34, 1, '', ''),
+(37, 34, 2, '', ''),
+(38, 34, 3, '', ''),
+(39, 34, 4, '', ''),
+(40, 34, 5, '', ''),
+(41, 34, 6, '', ''),
 (42, 34, 7, '6:00', '13:00'),
-(43, 35, 1, '4:00', '14:00'),
-(44, 35, 2, '6:00', '14:00'),
-(45, 35, 3, '6:00', '14:00'),
-(46, 35, 4, '6:00', '16:00'),
-(47, 35, 5, '6:00', '14:00'),
-(48, 35, 6, '6:00', '14:00'),
+(43, 35, 1, '', ''),
+(44, 35, 2, '', ''),
+(45, 35, 3, '', ''),
+(46, 35, 4, '', ''),
+(47, 35, 5, '', ''),
+(48, 35, 6, '', ''),
 (49, 35, 7, '6:00', '14:00'),
 (50, 36, 1, '', ''),
 (51, 36, 2, '', ''),
@@ -148,7 +154,49 @@ INSERT INTO `boatschedule` (`id`, `boatid`, `day`, `departuretime`, `arrivaltime
 (53, 36, 4, '', ''),
 (54, 36, 5, '', ''),
 (55, 36, 6, '', ''),
-(56, 36, 7, '6:00', '14:00');
+(56, 36, 7, '6:00', '14:00'),
+(57, 37, 1, '', ''),
+(58, 37, 2, '', ''),
+(59, 37, 3, '', ''),
+(60, 37, 4, '', ''),
+(61, 37, 5, '', ''),
+(62, 37, 6, '', ''),
+(63, 37, 7, '', ''),
+(64, 38, 1, '', ''),
+(65, 38, 2, '', ''),
+(66, 38, 3, '', ''),
+(67, 38, 4, '', ''),
+(68, 38, 5, '', ''),
+(69, 38, 6, '', ''),
+(70, 38, 7, '', ''),
+(71, 39, 1, '', ''),
+(72, 39, 2, '', ''),
+(73, 39, 3, '', ''),
+(74, 39, 4, '', ''),
+(75, 39, 5, '', ''),
+(76, 39, 6, '', ''),
+(77, 39, 7, '', ''),
+(78, 40, 1, '', ''),
+(79, 40, 2, '', ''),
+(80, 40, 3, '', ''),
+(81, 40, 4, '', ''),
+(82, 40, 5, '', ''),
+(83, 40, 6, '', ''),
+(84, 40, 7, '', ''),
+(85, 41, 1, '', ''),
+(86, 41, 2, '', ''),
+(87, 41, 3, '', ''),
+(88, 41, 4, '', ''),
+(89, 41, 5, '', ''),
+(90, 41, 6, '', ''),
+(91, 41, 7, '', ''),
+(92, 42, 1, '', ''),
+(93, 42, 2, '', ''),
+(94, 42, 3, '', ''),
+(95, 42, 4, '', ''),
+(96, 42, 5, '', ''),
+(97, 42, 6, '', ''),
+(98, 42, 7, '', '');
 
 -- --------------------------------------------------------
 
@@ -187,7 +235,15 @@ INSERT INTO `boat_route` (`routeid`, `boatid`, `portid`, `status`) VALUES
 (29, 36, 2, 1),
 (33, 36, 3, 1),
 (34, 36, 4, 1),
-(35, 36, 5, 1);
+(35, 36, 5, 1),
+(36, 39, 1, 2),
+(37, 39, 2, 2),
+(38, 39, 3, 2),
+(39, 40, 1, 2),
+(40, 40, 2, 2),
+(41, 41, 1, 2),
+(42, 42, 1, 2),
+(43, 42, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -250,6 +306,50 @@ INSERT INTO `ports` (`portid`, `portname`, `stateid`, `portlongitude`, `portlati
 (3, 'Fatehgarh', 6, 0, 0),
 (4, 'Kannauj', 6, 0, 0),
 (5, 'Varanasi', 6, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reserved_passengers`
+--
+
+CREATE TABLE `reserved_passengers` (
+  `passengerid` int(10) NOT NULL,
+  `ticketid` int(10) NOT NULL,
+  `name` text NOT NULL,
+  `age` int(10) NOT NULL,
+  `gender` int(10) NOT NULL,
+  `idtype` text DEFAULT NULL,
+  `idnumber` text DEFAULT NULL,
+  `contact` bigint(20) DEFAULT NULL,
+  `bookedat` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reserved_passengers`
+--
+
+INSERT INTO `reserved_passengers` (`passengerid`, `ticketid`, `name`, `age`, `gender`, `idtype`, `idnumber`, `contact`, `bookedat`) VALUES
+(14, 7, 'vishad', 21, 1, 'pan', 'asd123', 7894561231, '2019-11-06 20:59:46'),
+(15, 7, 'gaurav', 21, 1, '', '', 0, '2019-11-06 20:59:46'),
+(16, 7, 'shivam', 21, 1, '', '', 0, '2019-11-06 20:59:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reserved_ticket_log`
+--
+
+CREATE TABLE `reserved_ticket_log` (
+  `id` int(10) NOT NULL,
+  `boatid` int(10) NOT NULL,
+  `number_of_passenger` int(10) NOT NULL,
+  `portfrom` int(10) NOT NULL,
+  `portto` int(10) NOT NULL,
+  `ticket` text NOT NULL,
+  `paymentid` int(10) NOT NULL,
+  `bookedat` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -325,7 +425,8 @@ INSERT INTO `trips` (`tripid`, `tripnumber`, `boatid`, `tripdate`, `availablesea
 (21, 1, 33, '2019-11-04', 42, '2019-11-04 18:01:25', NULL),
 (22, 2, 34, '2019-11-04', 39, '2019-11-04 18:05:51', NULL),
 (23, 1, 35, '2019-11-04', 41, '2019-11-04 18:06:59', NULL),
-(24, 1, 36, '2019-11-04', 39, '2019-11-04 18:07:06', NULL);
+(24, 1, 36, '2019-11-04', 39, '2019-11-04 18:07:06', NULL),
+(25, 1, 33, '2019-11-06', 42, '2019-11-06 17:00:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -354,7 +455,8 @@ INSERT INTO `unreserved_ticket_log` (`id`, `boatid`, `number_of_passenger`, `por
 (22, 33, 2, 1, 2, '123456_MJS_526', 21, 0, '2019-11-04 12:31:25'),
 (23, 34, 1, 1, 4, '3450_VRZ_602', 22, 0, '2019-11-04 12:35:51'),
 (24, 35, 3, 1, 3, '3656_ULO_179', 23, 0, '2019-11-04 12:36:59'),
-(25, 36, 5, 1, 2, '9654_USX_976', 24, 0, '2019-11-04 12:37:06');
+(25, 36, 5, 1, 2, '9654_USX_976', 24, 0, '2019-11-04 12:37:06'),
+(26, 33, 2, 1, 2, '123456_DEH_863', 25, 0, '2019-11-06 11:30:29');
 
 -- --------------------------------------------------------
 
@@ -366,7 +468,7 @@ CREATE TABLE `users` (
   `userid` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `roleid` int(11) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` longtext NOT NULL,
   `email` varchar(60) NOT NULL,
   `mobilenumber` bigint(10) NOT NULL,
   `name` varchar(20) NOT NULL,
@@ -378,9 +480,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `username`, `roleid`, `password`, `email`, `mobilenumber`, `name`, `status`) VALUES
-(1, 'admin', 1, 'admin', 'vishum.10m@gmail.com', 8076248299, 'Vishad Mandal', 1),
-(4, 'gaurav', 2, 'asdf', 'sgaurav0999@gmail.com', 9953526971, 'Gaurav Sen', 1),
-(5, 'shivam', 2, '', 'rshivam@gmail.com', 123456789, 'Shivam raput', 2);
+(1, 'admin', 1, '$2y$10$x5vHjSAij2xrWrHoI2HsEeDzv4thERyZfhK45B1qUwmvUP8ZDlx0y', 'vishum.10m@gmail.com', 8076248299, 'Vishad Mandal', 1),
+(4, 'gaurav', 2, '$2y$10$uuN6SDw0DYyYgDOxC2t7Se2O3CtxF4Il/.C6sLvca6s3IfrrgEh4W', 'sgaurav0999@gmail.com', 9953526971, 'Gaurav Sen', 1),
+(7, 'shivam', 2, '$2y$10$j5HO8cSk8TPkBmZKu1noEudPhSm.UUmmguVk7Ql.No2umj/.T2z4e', 'shivam@gmail.com', 7894561231, 'Shivam raput', 1);
 
 --
 -- Indexes for dumped tables
@@ -433,6 +535,18 @@ ALTER TABLE `ports`
   ADD PRIMARY KEY (`portid`);
 
 --
+-- Indexes for table `reserved_passengers`
+--
+ALTER TABLE `reserved_passengers`
+  ADD PRIMARY KEY (`passengerid`);
+
+--
+-- Indexes for table `reserved_ticket_log`
+--
+ALTER TABLE `reserved_ticket_log`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -470,25 +584,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `boatdetails`
 --
 ALTER TABLE `boatdetails`
-  MODIFY `boatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `boatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `boatowner`
 --
 ALTER TABLE `boatowner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `boatschedule`
 --
 ALTER TABLE `boatschedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `boat_route`
 --
 ALTER TABLE `boat_route`
-  MODIFY `routeid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `routeid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `city`
@@ -509,6 +623,18 @@ ALTER TABLE `ports`
   MODIFY `portid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `reserved_passengers`
+--
+ALTER TABLE `reserved_passengers`
+  MODIFY `passengerid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `reserved_ticket_log`
+--
+ALTER TABLE `reserved_ticket_log`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
@@ -524,19 +650,19 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
-  MODIFY `tripid` bigint(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `tripid` bigint(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `unreserved_ticket_log`
 --
 ALTER TABLE `unreserved_ticket_log`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

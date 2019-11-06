@@ -6,8 +6,10 @@ $login_query="SELECT * FROM users WHERE username='".$username."' && status = 1";
 $execute_query=mysqli_query($connect,$login_query);
 $count_rows=mysqli_num_rows($execute_query);
 $result_data=mysqli_fetch_assoc($execute_query);
-if($result_data['password']==$password)
-{
+$password_check=password_verify($password,$result_data['password']);
+if($password_check==true)
+{   
+    
     if($result_data['roleid'] < 3)
     {
         session_start();

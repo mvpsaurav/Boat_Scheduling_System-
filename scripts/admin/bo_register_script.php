@@ -31,8 +31,9 @@ $status=1;
 
 if($confirm_password==$password)
 {
+  $hash_password=password_hash($password, PASSWORD_DEFAULT);
    $register_query="INSERT INTO boatowner(username, roleid, password, email, mobilenumber,name,adhaarnumber,pannumber,gender,bankname,ifsc,accountname,accountnumber,status,profilepicture,profilepictureurl,addressline1,addressline2,cityid,stateid,countryid,zipcode,createdat,createdby) 
-  VALUES ('".$username."','".$roleid."','".$password."','".$useremail."','".$mobile_number."','".$fullname."'
+  VALUES ('".$username."','".$roleid."','".$hash_password."','".$useremail."','".$mobile_number."','".$fullname."'
   ,'".$aadaarnumber."','".$pannumber."','".$gender."','".$bank_name."','".$ifsc."','".$account_name."','".$account_number."','".$status."','".$profilepicture."','".$profilepictureurl."','".$address1."','".$address2."','".$city."','".$state."','".$country."','".$zip_code."','".$createdat."','".$createdby."')";
   if($execute_query=mysqli_query($connect,$register_query))
   {

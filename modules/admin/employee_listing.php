@@ -5,7 +5,7 @@ require"../../includes/admin/layout/sidebar.php";
 // require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
-$listing_query="SELECT * FROM users WHERE roleid <= 2 && status = 1";
+$listing_query="SELECT * FROM users WHERE roleid = 2 && status = 1";
 $execute_query=mysqli_query($connect,$listing_query);
 $index=1;
 ?>
