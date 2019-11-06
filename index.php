@@ -16,7 +16,7 @@
 		<div class="title">Boat Owner Login</div>
 		</div>
 	</a>
-	<a href="modules/client/book.php">
+	<a href="modules/client/book_ticket.php">
 		<div class="card" id="client_link">
 		<div class="title">Book Ticket</div>
 		</div>

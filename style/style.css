@@ -473,3 +473,17 @@ box-shadow: 0px 1px 6px black ;
 {
     padding: 10px 0px 0px 0px;
 }
+#book_ticket_body
+{
+    background-image: url("../includes/images/pic1.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+#book_ticket_body label
+{
+color: white;
+font-family: sans-serif;
+}
+
