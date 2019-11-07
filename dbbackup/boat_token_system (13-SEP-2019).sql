@@ -2,10 +2,10 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: sql302.epizy.com
--- Generation Time: Oct 09, 2019 at 08:52 AM
--- Server version: 5.6.45-86.1
--- PHP Version: 7.2.22
+-- Host: 127.0.0.1
+-- Generation Time: Oct 13, 2019 at 10:19 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,16 +19,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `epiz_24608893_boat_token_system`
+-- Database: `boat_token_system`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `boatonwer`
+-- Table structure for table `boatowner`
 --
 
-CREATE TABLE `boatonwer` (
+CREATE TABLE `boatowner` (
   `id` int(11) NOT NULL,
   `username` varchar(30) DEFAULT NULL,
   `name` varchar(32) DEFAULT NULL,
@@ -42,8 +42,8 @@ CREATE TABLE `boatonwer` (
   `ifsc` varchar(10) DEFAULT NULL,
   `accountname` varchar(20) DEFAULT NULL,
   `accountnumber` varchar(20) DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '0',
-  `roleid` int(1) NOT NULL DEFAULT '3',
+  `status` int(1) NOT NULL DEFAULT 0,
+  `roleid` int(1) NOT NULL DEFAULT 3,
   `profilepicture` varchar(50) DEFAULT NULL,
   `profilepictureurl` varchar(50) DEFAULT NULL,
   `addressline1` varchar(30) DEFAULT NULL,
@@ -56,16 +56,16 @@ CREATE TABLE `boatonwer` (
   `createdby` int(11) DEFAULT NULL,
   `updatedat` datetime DEFAULT NULL,
   `updatedby` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `boatonwer`
+-- Dumping data for table `boatowner`
 --
 
-INSERT INTO `boatonwer` (`id`, `username`, `name`, `email`, `adhaarnumber`, `pannumber`, `mobilenumber`, `password`, `gender`, `bankname`, `ifsc`, `accountname`, `accountnumber`, `status`, `roleid`, `profilepicture`, `profilepictureurl`, `addressline1`, `addressline2`, `cityid`, `stateid`, `countryid`, `zipcode`, `createdat`, `createdby`, `updatedat`, `updatedby`) VALUES
-(1, 'user name', 'fullname', 'email', 'adhar num', 'pan numb', 0, 'pass', 1, 'bank name', 'ifsc', 'acc name', 'acc num', 3, 3, '', '', 'add1', 'add2', 0, 0, 0, 0, '2019-10-09 05:24:05', 1, NULL, NULL),
-(2, 'user name', 'fullname', 'email', 'adhar num', 'pan numb', 0, 'pass', 1, 'bank name', 'ifsc', 'acc name', 'acc num', 3, 3, '', '', 'add1', 'add2', 0, 0, 0, 0, '2019-10-09 11:10:54', 1, NULL, NULL),
-(3, 'surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'surti', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 3, 3, '', '', 'govind puram', '', 0, 0, 0, 20302, '2019-10-09 11:10:42', 1, NULL, NULL);
+INSERT INTO `boatowner` (`id`, `username`, `name`, `email`, `adhaarnumber`, `pannumber`, `mobilenumber`, `password`, `gender`, `bankname`, `ifsc`, `accountname`, `accountnumber`, `status`, `roleid`, `profilepicture`, `profilepictureurl`, `addressline1`, `addressline2`, `cityid`, `stateid`, `countryid`, `zipcode`, `createdat`, `createdby`, `updatedat`, `updatedby`) VALUES
+(1, 'newuser', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'asdf', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 1, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-10-09 05:24:05', 1, '2019-10-13 04:10:52', 1),
+(2, 'surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'asdf', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 1, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-10-09 11:10:54', 1, '2019-10-13 04:10:52', 1),
+(3, 'Surti', 'surti kumar mishra', 'surti@gmail.com', '12345678912', 'asdf45612', 7894561231, 'asdf', 1, 'allahabad', 'alla12334', 'surti mishra', '12345487', 3, 3, '', '', 'govind puram', '', 1, 6, 1, 20302, '2019-10-09 11:10:42', 1, '2019-10-13 04:10:07', 1);
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,14 @@ CREATE TABLE `city` (
   `cityid` int(11) NOT NULL,
   `stateid` int(11) NOT NULL,
   `cityname` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`cityid`, `stateid`, `cityname`) VALUES
+(1, 6, 'Ghaziabad');
 
 -- --------------------------------------------------------
 
@@ -88,7 +95,14 @@ CREATE TABLE `city` (
 CREATE TABLE `country` (
   `id` int(11) NOT NULL,
   `countryname` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`id`, `countryname`) VALUES
+(1, 'India');
 
 -- --------------------------------------------------------
 
@@ -101,7 +115,7 @@ CREATE TABLE `roles` (
   `role` varchar(10) NOT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_at` date DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `roles`
@@ -122,7 +136,20 @@ CREATE TABLE `state` (
   `stateid` int(11) NOT NULL,
   `countryid` int(11) NOT NULL,
   `statename` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `state`
+--
+
+INSERT INTO `state` (`stateid`, `countryid`, `statename`) VALUES
+(1, 1, 'Andhra Pradesh'),
+(2, 1, 'Bihar'),
+(3, 1, 'Chhattisgarh'),
+(4, 1, 'Punjab'),
+(5, 1, 'Rajasthan'),
+(6, 1, 'Uttar Pradesh'),
+(7, 1, 'West Bengal');
 
 -- --------------------------------------------------------
 
@@ -138,8 +165,8 @@ CREATE TABLE `users` (
   `email` varchar(60) NOT NULL,
   `mobilenumber` bigint(10) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `status` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -148,16 +175,17 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userid`, `username`, `roleid`, `password`, `email`, `mobilenumber`, `name`, `status`) VALUES
 (1, 'admin', 1, 'admin', 'vishum.10m@gmail.com', 8076248299, 'Vishad Mandal', 1),
 (4, 'gaurav', 2, 'asdf', 'sgaurav0999@gmail.com', 9953526971, 'Gaurav Sen', 1),
-(5, 'shivam', 2, '', 'rshivam@gmail.com', 123456789, 'Shivam raput', 1);
+(5, 'shivam', 2, '', 'rshivam@gmail.com', 123456789, 'Shivam raput', 2),
+(6, '', 2, '', '', 0, '', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `boatonwer`
+-- Indexes for table `boatowner`
 --
-ALTER TABLE `boatonwer`
+ALTER TABLE `boatowner`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -195,22 +223,22 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `boatonwer`
+-- AUTO_INCREMENT for table `boatowner`
 --
-ALTER TABLE `boatonwer`
+ALTER TABLE `boatowner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `cityid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cityid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -222,13 +250,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
-  MODIFY `stateid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `stateid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

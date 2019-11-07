@@ -1,6 +1,7 @@
 <?php 
 require "../../includes/admin/dbconnect.php";
-
+session_start();
+$createdby=$_SESSION['userid'];
 $username=$_POST["user_name"];
 $fullname=$_POST["full_name"];
 $useremail=$_POST["user_email"];
@@ -23,16 +24,16 @@ $city=$_POST["city"];
 $roleid=3;
 $createdat=date("Y-m-d h:m:s");
 // echo"<br>2019-10-09 05:24:05";
-$createdby=1;
 $profilepicture="";
 $profilepictureurl="";
-$status=3;
+$status=1;
 
 
 if($confirm_password==$password)
 {
-   $register_query="INSERT INTO boatonwer(username, roleid, password, email, mobilenumber,name,adhaarnumber,pannumber,gender,bankname,ifsc,accountname,accountnumber,status,profilepicture,profilepictureurl,addressline1,addressline2,cityid,stateid,countryid,zipcode,createdat,createdby) 
-  VALUES ('".$username."','".$roleid."','".$password."','".$useremail."','".$mobile_number."','".$fullname."'
+  $hash_password=password_hash($password, PASSWORD_DEFAULT);
+   $register_query="INSERT INTO boatowner(username, roleid, password, email, mobilenumber,name,adhaarnumber,pannumber,gender,bankname,ifsc,accountname,accountnumber,status,profilepicture,profilepictureurl,addressline1,addressline2,cityid,stateid,countryid,zipcode,createdat,createdby) 
+  VALUES ('".$username."','".$roleid."','".$hash_password."','".$useremail."','".$mobile_number."','".$fullname."'
   ,'".$aadaarnumber."','".$pannumber."','".$gender."','".$bank_name."','".$ifsc."','".$account_name."','".$account_number."','".$status."','".$profilepicture."','".$profilepictureurl."','".$address1."','".$address2."','".$city."','".$state."','".$country."','".$zip_code."','".$createdat."','".$createdby."')";
   if($execute_query=mysqli_query($connect,$register_query))
   {

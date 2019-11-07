@@ -11,7 +11,7 @@ $edit_data=mysqli_fetch_assoc($execute_query);
 	<form action="../../scripts/admin/employee_edit_script.php" method="post">
     <input type="text" name="userid" value="<?= $edit_data['userid']?>" readonly style="display:none;">
       <div class="modal-header">
-        <h4 class="modal-title">Add Employee</h4>
+        <h4 class="modal-title">Edit Employee</h4>
       </div>
       <div class="modal-body">
       	<div class="row">
