@@ -32,19 +32,19 @@ require"../../includes/admin/dbconnect.php";
 <form action="../../scripts/bo/bo_register_script.php" method="post">
 <div class="bo_register_from">
       	<div class="row">
-      		<div class="col"><label>User Name</label><input type="text" name="user_name"></div>
+      		<div class="col"><label>User Name</label><input type="text" required name="user_name"></div>
 		  </div>
 		<div class="row">
-			  <div class="col"><label>Full Name</label><input type="text" name="full_name"></div>
+			  <div class="col"><label>Full Name</label><input type="text" required name="full_name"></div>
 		</div>
 		<div class="row">	
           	<div class="col"><label>Email</label><input type="text" name="user_email"></div>
       	</div>
       	<div class="row">
-		  <div class="col"><label>Password</label><input type="password" name="password"></div>
+		  <div class="col"><label>Password</label><input type="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"></div>
 		</div>
 		<div class="row">
-		  <div class="col"><label>Confirm Password</label><input type="password" name="confirm_password"></div>
+		  <div class="col"><label>Confirm Password</label><input type="password" required name="confirm_password"></div>
 		</div>
 		<div class="row">
 			<div class="col"><label>Mobile Number</label><input type="text" name="mobile_number"></div>
@@ -84,7 +84,7 @@ require"../../includes/admin/dbconnect.php";
         <div class="row">
           <div class="col"><label>Country</label><br>
             <select name="country" onchange="getstate(this.value)">
-              <option>Select Country</option>
+              <option value="">Select Country</option>
               <?php
                 while($result=mysqli_fetch_assoc($execute_getcounrty_query))
                 {
@@ -95,13 +95,13 @@ require"../../includes/admin/dbconnect.php";
 		  </div>  
           <div class="col"><label>State</label><br>
                 <select id="state" name="state" onchange="getcity(this.value)">
-                  <option>Select State</option>
+                  <option value="">Select State</option>
               </select>
 
 		  </div>
           <div class="col"><label>City</label><br>
           <select id="city" name="city">
-                  <option>Select City</option>
+                  <option value="">Select City</option>
               </select>
           </div>
 		</div>

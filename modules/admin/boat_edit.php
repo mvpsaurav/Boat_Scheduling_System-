@@ -42,12 +42,12 @@ $execute_getboatowner_query=mysqli_query($connect,$getboatowner_query);
               ?>
             </select>
          </div>
-      		<div class="col-4"><label>Boat Name</label><input type="text" name="boatname" value="<?= $edit_data['boatname']?>"></div>
-          <div class="col-4"><label>Boat Number</label><input type="text" name="boatnumber" value="<?= $edit_data['boatnumber']?>"></div>
+      		<div class="col-4"><label>Boat Name</label><input type="text" required name="boatname" value="<?= $edit_data['boatname']?>"></div>
+          <div class="col-4"><label>Boat Number</label><input type="text" required name="boatnumber" value="<?= $edit_data['boatnumber']?>"></div>
       	</div>
       	<div class="row">
-          <div class="col-4"><label>Person Capacity</label><input type="text" name="personcapacity" value="<?= $edit_data['personcapacity']?>"></div>
-          <div class="col-4"><label>Weight capacity</label><input type="text" name="weightcapacity" value="<?= $edit_data['weightcapacity']?>"></div>
+          <div class="col-4"><label>Person Capacity</label><input type="text" required name="personcapacity" pattern="[0-9]" value="<?= $edit_data['personcapacity']?>"></div>
+          <div class="col-4"><label>Weight capacity</label><input type="text" required name="weightcapacity" value="<?= $edit_data['weightcapacity']?>"></div>
       		<!-- <div class="col-4"><label>mobile number</label>     <input type="text" name="mobile_number"></div> -->
       	</div>
       	<div class="row">
@@ -129,8 +129,8 @@ $execute_getboatowner_query=mysqli_query($connect,$getboatowner_query);
       
       </div>
       <div class="modal-footer">
-      	<button type="submit" class="btn btn-success">Update</button>
-        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+      	<button type="submit" class="add_btn">Update</button>
+        <button type="button" class="add_btn" data-dismiss="modal">Close</button>
       </div>
     </form>
       <!-- Modal content end-->

@@ -15,13 +15,12 @@ if($confirm_password==$password)
   $register_query="INSERT INTO users(username, roleid, password, email, mobilenumber,name,status) VALUES ('".$username."','".$roleid."','".$hash_password."','".$useremail."','".$mobile_number."','".$fullname."','1')";
   if($execute_query=mysqli_query($connect,$register_query))
   {
-  	header("location: ../../modules/admin/employee_listing.php");
+  	header("location: ../../modules/admin/employee_listing.php?register=success");
   }
 }
 else
 {
-	echo "password did not match";
-    // header("location: ../modules/login.php?error=password_did_not_match");
+    header("location: ../../modules/admin/employee_listing.php?password=didnotmatched");
 }
 
 

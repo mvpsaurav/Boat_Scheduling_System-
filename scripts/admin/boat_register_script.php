@@ -46,7 +46,7 @@ if(!empty($boatname || $boatnumber ))
               $port_query="INSERT INTO boat_route (boatid,portid,status) VALUES ('".$boatid."','".$data."',1)";
               $execute_port_query=mysqli_query($connect,$port_query);        
             }
-            header("location: ../../modules/admin/boat_listing.php");
+            header("location: ../../modules/admin/boat_listing.php?register=success");
         }
       else
       {
@@ -59,7 +59,7 @@ if(!empty($boatname || $boatnumber ))
   }
 }
 else{
-  header("location: ../../modules/admin/boat_listing.php?error=fieldsempty");
+  header("location: ../../modules/admin/boat_listing.php?empty=fields");
 }
 
 

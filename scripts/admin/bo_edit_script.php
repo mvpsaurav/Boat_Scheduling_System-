@@ -48,13 +48,13 @@ if($confirm_password==$password)
 
 if($execute_query=mysqli_query($connect,$edit_query))
   {
-  	header("location: ../../modules/admin/bo_listing.php");
+  	header("location: ../../modules/admin/bo_listing.php?edit=success");
   }
   else{echo"error occured while saving data";}
 }
 else
 {
-	echo "password did not match";
+	header("location: ../../modules/admin/bo_listing.php?password=didnotmatched");
 }
 
 }

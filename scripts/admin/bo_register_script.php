@@ -37,13 +37,12 @@ if($confirm_password==$password)
   ,'".$aadaarnumber."','".$pannumber."','".$gender."','".$bank_name."','".$ifsc."','".$account_name."','".$account_number."','".$status."','".$profilepicture."','".$profilepictureurl."','".$address1."','".$address2."','".$city."','".$state."','".$country."','".$zip_code."','".$createdat."','".$createdby."')";
   if($execute_query=mysqli_query($connect,$register_query))
   {
-  	header("location: ../../modules/admin/bo_listing.php");
+  	header("location: ../../modules/admin/bo_listing.php?register=success");
   }
 }
 else
 {
-	 echo"password did not match";
-    // header("location: ../modules/login.php?error=password_did_not_match");
+  header("location: ../../modules/admin/bo_listing.php?password=didnotmatched");
 }
 
 

@@ -2,7 +2,7 @@
 require"../../includes/admin/layout/head.php";
 require"../../includes/admin/layout/condition_check.php";
 require"../../includes/admin/layout/sidebar.php";
-// require"../../includes/admin/layout/header.php";
+require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
 $listing_query="SELECT * FROM users WHERE roleid = 2 && status = 1";
@@ -17,7 +17,7 @@ $index=1;
             <div class="col">
             	<div class="add_button">
 					<!-- <a href="employee_register.php" class="btn btn-dark">Add Employee</a> -->
-					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Employee</button>
+					<button type="button" class="add_btn" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Employee</button>
             	</div>
             	<div class="wrapper">
 	            	<table class="table customtable table-striped table-bordered" id="emplist">
@@ -40,7 +40,7 @@ $index=1;
 				echo '<td>'.$data['name'].'</td>';
 				echo '<td>'.$data['email'].'</td>';
 				echo '<td>'.$data['mobilenumber'].'</td>';
-				echo '<td><a href="#" onclick="editemp('.$data['userid'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="../../scripts/admin/employee_delete_script.php?id='.$data['userid'].'" class="btn btn-danger">Delete</a></td>';
+				echo '<td><a href="#" onclick="editemp('.$data['userid'].')" data-toggle="modal" data-target="#myModal" class="edit_btn">Edit</a> <a href="../../scripts/admin/employee_delete_script.php?id='.$data['userid'].'" class="delete_btn">Delete</a></td>';
 				echo '</tr>';
 				$index++;
 			}

@@ -4,7 +4,7 @@ require"../../includes/admin/layout/condition_check.php";
 require"../../includes/admin/layout/sidebar.php";
 require"../../includes/admin/dbconnect.php";
 
-$select_ticktes_query="SELECT * FROM unreserved_ticket_log";
+$select_ticktes_query="SELECT * FROM reserved_ticket_log";
 $execute_select_ticktes_query=mysqli_query($connect,$select_ticktes_query);
 $select_ports_query="SELECT portname,portid FROM ports";
 $execute_select_ports_query=mysqli_query($connect,$select_ports_query);
@@ -48,7 +48,7 @@ $index=1;
             ?>
             <tr>
                 <td><?=$index?></td>
-                <td><?=$ticket_data['token']?></td>
+                <td><?=$ticket_data['ticket']?></td>
                 <td><?=$ticket_data['number_of_passenger']?></td>
                 <td>
                     <?php 
@@ -62,14 +62,14 @@ $index=1;
                     ?>
                 </td>
                 <td>
-                    <?php   
-                        foreach($boats as $boat)
-                        {
-                            if($boat['boatid']==$ticket_data['boatid'])
-                            {
-                                echo $boat['boatname'];
-                            }
-                        }
+                    <?php 
+                         foreach($boats as $boat)
+                         {
+                             if($boat['boatid']==$ticket_data['boatid'])
+                             {
+                                 echo $boat['boatname'];
+                             }
+                         }
                     ?>
                 </td>
                 <td>

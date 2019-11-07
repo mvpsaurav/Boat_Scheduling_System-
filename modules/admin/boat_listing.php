@@ -2,7 +2,7 @@
 require"../../includes/admin/layout/head.php";
 require"../../includes/admin/layout/condition_check.php";
 require"../../includes/admin/layout/sidebar.php";
-// require"../../includes/admin/layout/header.php";
+require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
 $pending_query="SELECT * FROM boatdetails WHERE status = 3";
@@ -26,7 +26,7 @@ $index=1;
             <div class="col">
             	<div class="add_button">
 					<!-- <a href="employee_register.php" class="btn btn-dark">Add Employee</a> -->
-					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat</button>
+					<button type="button" class="add_btn" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat</button>
             	</div>
             	<div class="wrapper">
 	            	<table id="boatlist" class="customtable table table-striped table-bordered">
@@ -56,7 +56,7 @@ $index=1;
 					}
 				}
 				echo'</td>';
-				echo '<td><a href="#" onclick="editemp('.$data['boatid'].')" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Edit</a> <a href="../../scripts/admin/boat_delete_script.php?id='.$data['boatid'].'" class="btn btn-danger">Delete</a></td>';
+				echo '<td><a href="#" onclick="editemp('.$data['boatid'].')" data-toggle="modal" data-target="#myModal" class="edit_btn">Edit</a> <a href="../../scripts/admin/boat_delete_script.php?id='.$data['boatid'].'" class="delete_btn">Delete</a></td>';
 				echo '</tr>';
 				$index++;
 			}

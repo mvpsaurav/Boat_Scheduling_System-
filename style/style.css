@@ -391,10 +391,23 @@ box-shadow: 0px 1px 6px black ;
     color: #202538;
     background-color: white;
 }
+.custombutton:hover
+{
+    /* position: inherit;
+    top:50%;
+    right:-40%; */
+    transition-duration: 350ms;
+    padding: 0px 0px;
+    width: 90px;
+    border-radius: 20px;
+    -webkit-text-stroke: medium;
+    color: #0f1119;
+    background-color: #e2dfdf;
+}
 .home_container
 {
-    /*width: 60%;
-    height: 50%;*/
+    /*width: 60%;*/
+    /* height: 805px; */
     background-image: linear-gradient(#80404023,#80404030,#80404050);
      /* #80404043; */
     display: inline-flex;
@@ -491,4 +504,166 @@ box-shadow: 0px 1px 6px black ;
 color: white;
 font-family: sans-serif;
 }
-
+.home_container label
+{
+    width: 135px ;
+}
+.home_passenger_container
+{
+    width: 100%;
+    overflow-y: scroll; 
+    max-height: 50vh;
+    position: relative;
+}
+.passenger_card_body
+{
+    background-color: #80404050 ;
+    border-bottom: 5px solid #ffffff60;
+}
+#book_ticket_button
+{
+    position: relative;
+    bottom: -40px;
+    /* left: 164px; */
+    margin-left: 50%;
+    transform: translate(-50%, 0px);
+}
+input
+{
+    padding: 0px 0px 0px 8px !important;
+    border-radius:20px;
+    border: 2px solid;
+}
+input:hover
+{
+    transition-duration: 250ms;
+    padding: 0px 0px 0px 8px !important;
+    border-radius:20px;
+    border: 2px solid white;
+}
+select
+{
+    padding: 0px !important;
+    border-radius:20px;
+    border: 2px solid;
+}
+select:hover
+{
+    transition-duration: 250ms;
+    padding: 0px !important;
+    border-radius:20px;
+    border: 2px solid white;
+}
+.btn-1
+{
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 600;
+    background-color: #20202090;
+}
+.btn-1:hover
+{
+    transition-duration: 250ms;
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 600;
+    background-color: #20202030;
+    border: 2px solid;
+}
+.edit_btn
+{
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+    background-color: steelblue ;
+}
+.edit_btn:hover
+{
+    transition-duration: 350ms;
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color: rgb(216, 215, 215);
+    font-family: sans-serif;
+    font-weight: 500;
+    background-color: rgb(57, 109, 151) ;
+    text-decoration-line: none;
+}
+.add_btn
+{
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+    background-color: #202538 ;
+}
+.add_btn:hover
+{
+    transition-duration: 450ms;
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color:  rgb(216, 215, 215);
+    font-family: sans-serif;
+    font-weight: 500;
+    background-color: #151925 ;
+    text-decoration-line: none;
+}
+.delete_btn
+{
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+    background-color: red ;
+}
+.delete_btn:hover
+{
+    transition-duration: 350ms;
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color:  rgb(216, 215, 215);
+    font-family: sans-serif;
+    font-weight: 500;
+    background-color: rgb(138, 2, 2) ;
+    text-decoration-line: none;
+}
+/* .submit_btn
+{
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+    background-color: #202538 ;
+}
+.close_btn
+{
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+    background-color: #202538 ;
+} */
+#home_link
+{
+    position: absolute;
+    top: 35px;
+}
+#home_link a
+{
+color: white;
+}
+#home_link a:hover
+{
+    transition-duration: 300ms;
+    color: #c9c9c9;
+    text-decoration-line: none;
+}

@@ -2,7 +2,7 @@
 require"../../includes/admin/layout/head.php";
 require"../../includes/admin/layout/condition_check.php";
 require"../../includes/admin/layout/sidebar.php";
-// require"../../includes/admin/layout/header.php";
+require"../../includes/admin/layout/header.php";
 require"../../includes/admin/dbconnect.php";
 
 $port_query="SELECT * FROM ports";
@@ -57,7 +57,7 @@ $index=1;
                         </div>
                         <div class="row">
                             <div class="col"></div>
-                            <div class="col"><button type="submit">Generate Ticket</button></div>
+                            <div class="col"><button class="add_btn" type="submit">Generate Ticket</button></div>
                         </div>
                     </form>
                   </div>
@@ -105,7 +105,7 @@ $index=1;
                                     </div>
                                     <div class="col">
                                         <select name="journey_to" id="destination" onchange="get_reserved_boat(this.value)">
-                                            <option>choose station
+                                            <option>Choose Station
                                             </option>
                                         </select>
                                     </div>
@@ -114,10 +114,11 @@ $index=1;
                                   <div class="col"><label>Boats</label>
                                   </div>
                                   <div class="col" ><select id="reserved_boats" name="boatid">
-                                    <option>Please Select Destination Port</option>
-
+                                    <option>Select Destination</option>
                                   </select></div>
                                 </div>
+                                <a href="#" class="add_btn" onclick="addtraveler()">Add Passengers</a>
+
                                <div class="traveler_details" id="test">
                                    <div class="wrapper" id="reservation_wrapper">
                                        <div class="row">
@@ -132,7 +133,6 @@ $index=1;
                                            <div class="col">
                                                 <label>Gender</label><br>
                                                 <select name="traveler[2][]"><option value="1">Male</option><option value="2">Female</option><option value="3">Other</option></select>
-                                                <!-- <div class="radio-group"><label class="radio"><input type="radio" name="traveler[2][0]" value="1">Male<span></span></label><label class="radio"><input type="radio" name="traveler[2][0]" value="2">Female<span></span></label><label class="radio"><input type="radio" name="traveler[2][0]" value="3">Other<span></span></label></div> -->
                                            </div>
                                        </div>
                                        <div class="row">
@@ -151,12 +151,18 @@ $index=1;
                                        </div>
                                    </div>
                                </div>
-                                <a href="#" class="btn btn-dark" onclick="addtraveler()">Add Details</a>
-
+                              
                         
                         
                     </div>
-                <div class="section_footer"><!--<input type="button" onclick="addtraveler()"> --><button type="submit">Book Reservation</button> </div>
+                <div class="section_footer">
+                    <div class="row">
+                        <div class="col-9"></div>
+                        <div class="col-3">
+                           <button class="add_btn" type="submit">Book Reservation</button> 
+                        </div>
+                    </div>
+                </div>
                 </form>
                 </div>
                        

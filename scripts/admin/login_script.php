@@ -16,7 +16,7 @@ if($password_check==true)
         $_SESSION['userid']=$result_data['userid'];
         $_SESSION['username']=$result_data['username'];
         $_SESSION['userrole']=$result_data['roleid'];    
-        header('location:  ../../modules/admin/bo_listing.php');	
+        header('location:  ../../modules/admin/bo_listing.php?user=welcome');	
     }
     else
     {
@@ -25,7 +25,7 @@ if($password_check==true)
 }
 else
 {
-    header('location:  ../../modules/admin/login.php?error=wrongpassword');
+    header('location:  ../../modules/admin/login.php?password=didnotmatched');
 }
 
 ?>

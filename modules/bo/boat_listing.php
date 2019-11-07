@@ -20,7 +20,7 @@ $index=1;
             <div class="col">
             	<div class="add_button">
 					<!-- <a href="employee_register.php" class="btn btn-dark">Add Employee</a> -->
-					<button type="button" class="btn btn-dark" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat</button>
+					<button type="button" class="add_btn" data-toggle="modal" onclick="addemp()" data-target="#myModal">Add Boat</button>
             	</div>
 	            	
 						<?php            		
@@ -48,7 +48,7 @@ $index=1;
 												<div class="col"><label><b>Seats Available :</b></label> <?php echo $data['personcapacity']?></div>
 											</div>
 											<button class="custombutton" type="button" onclick="editemp(<?= $data['boatid'] ?>)" data-toggle="modal" data-target="#myModal">Edit</button>
-											<a class="custombutton" href="../../scripts/bo/boat_delete_script.php?id=<?=$data['boatid']?>">Delete</a>
+											<a class="delete_btn" href="../../scripts/bo/boat_delete_script.php?id=<?=$data['boatid']?>">Delete</a>
 										</div>
 									</div>
 									<?php

@@ -41,7 +41,7 @@ if(!empty($journey_date || $journey_time || $boatid || $journey_from || $journey
             $create_passengers_query="INSERT INTO reserved_passengers (ticketid,name,age,gender,idtype,idnumber,contact) VALUES ('".$ticketid."','".$user[0]."','".$user[1]."','".$user[2]."','".$user[3]."','".$user[4]."','".$user[5]."')";
             $execute_create_passengers_query=mysqli_query($connect,$create_passengers_query);
         }        
-        header("Location: ../../modules/admin/print_reserved_ticket.php?ticket=generated&ticket=".$ticket);
+        header("Location: ../../modules/client/print_reserved_ticket.php?ticket=generated&ticket=".$ticket);
     }
 }
 
